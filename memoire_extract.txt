@@ -1,0 +1,1187 @@
+MINISTERE DE L’ENSEIGNEMENT         SUPERIEUR ET DE LA    RECHERCHE
+République Togolaise 
+Travail – Liberté - Patrie 
+ 
+ 
+ 
+INSTITUT DES SCIENCES TECHNOLOGIQUES, ECONOMIQUES ET ADMINISTRATIVES  
+Domaine : Sciences et Technologies 
+Mention : Sciences de l’ingénieur 
+Grade : Licence Professionnelle 
+         
+N° d’ordre :  INS/LP-6300/2022 
+SPECIALITE : DEVELOPPEUR D’APPLICATIONS
+CONCEPTION ET REALISATION D’APPLICATION MOBILE DE PLANIFICATION DE DEPENSE
+ 
+Mémoire de fin d’étude pour l’obtention du Diplôme de Licence Professionnelle 
+ 
+Présenté et soutenu par :
+ADIBOLO Y. A. Gottlieb
+Session de Décembre 2026
+ 
+Jury de soutenance
+ 
+Président   :  
+Directeur    :  M. AKANATE Alassani                    Ingénieur en Télécoms et informatique Membres   :
+RÉSUMÉ
+Dans un contexte économique marqué par l'instabilité des prix et la hausse du coût de la vie en Afrique de l'Ouest, la gestion des finances personnelles représente un véritable défi pour les jeunes actifs et les ménages urbains. La majorité de la population continue de recourir à des méthodes traditionnelles de suivi des dépenses, telles que les notes manuscrites ou les calculs approximatifs, qui présentent de nombreuses lacunes en termes de visibilité, de planification et d'anticipation des imprévus financiers.
+Ce mémoire présente la conception et la réalisation d'une application mobile dédiée à la planification et au suivi des dépenses personnelles, spécialement adaptée au contexte socio-économique ouest-africain. L'objectif principal est de proposer une solution numérique intuitive, sécurisée et fonctionnelle, permettant aux utilisateurs de centraliser leurs transactions, catégoriser leurs dépenses, planifier leurs budgets et visualiser l'évolution de leurs finances à travers des tableaux de bord interactifs.
+La démarche méthodologique adoptée comprend une phase de collecte de données auprès des utilisateurs cibles, une analyse des besoins fonctionnels et non fonctionnels, la conception du système à travers les méthodes MERISE et UML, l'implémentation de l'application et la réalisation de tests de validation. L'application a été développée en utilisant des technologies mobiles modernes et une base de données sécurisée, garantissant la confidentialité des informations financières des utilisateurs.
+Les résultats obtenus démontrent que l'application développée répond efficacement aux besoins identifiés : elle offre une interface ergonomique et accessible, des fonctionnalités complètes de gestion budgétaire et des outils de prévision financière. Les tests de validation ont confirmé la fiabilité, la performance et la sécurité de la solution.
+Ce travail contribue à l'amélioration de l'autonomie financière des utilisateurs et ouvre des perspectives intéressantes pour le développement d'outils numériques adaptés aux réalités africaines.
+Mots-clés : 
+Application mobile, gestion financière personnelle, planification de dépenses, budget, Afrique de l'Ouest, développement mobile, sécurité des données.
+DÉDICACE
+Ce document est principalement dédié à :  
+mon fère ADIBOLO Hervé pour son soutien multiforme et conseils ; 
+ma mère TSOLENYANU Yawa Mebiagbé qui n’a jamais baissé les bras pour me rendre heureux et qui me couvre toujours de son amour.
+Mon oncle TSOLENYANU William pour ses encouragements et conseille  
+REMERCIEMENTS
+Au terme de ce travail, je tiens à manifester ma profonde gratitude envers toutes ces personnes sans lesquelles ce travail n’aurait pu aboutir. 
+Nous exprimons vivement nos sincères remerciements : 
+à la direction et au Personnel de FORMATEC :  
+au Directeur Général de FORMATEC, Docteur AMEY Kossi Bollagnini, Docteur-Ingénieur en Génie Civil, Professeur honoraire, Name in Science, 
+Enseignant-Chercheur à l’Ecole Polytechnique de Lomé (EPL) à l’université de LOME (UL) et à FORMATEC, pour son attention particulière dont nous avons bénéficié ; 
+au secrétaire Général, M. ATTISSO Follyvi  Adjignon, Responsable qualité pour votre chaleureux accueil ; 
+au Responsable de service Contrôle Audit Interne, Mme AMEY Ruphine Joëlle, Master en Sciences de Gestion, Enseignant-chercheur à FORMATEC pour ses encouragements ; 
+au Coordonnateur Académique
+, 
+M. AMESSEFE Komi Yoan Freddy, Ingénieur en Génie Civil, Responsable de la Filière Technologie de Construction et Environnement, Enseignant-Chercheur à FORMATEC ;    
+au Représentant de filière Technologie Industrielle et Energie (TIE) à FORMATEC, Dr LAWSON BODY Tétévi, Docteur-Ingénieur Génie Mécanique et Enseignant-Chercheur à FORMATEC, pour ses précieux conseils ; 
+à tout le personnel et le corps Enseignant de FORMATEC pour leurs conseils ; 
+aux assistants du Responsable de la filière Technologies Industrielles et Energies, M. OGOU Yao Apollinaire et M. BOUSSE Kudzo Selon Marcelin, Enseignant à FORMATEC, pour leurs soutiens ;  
+à mon Directeur de Mémoire M. AKANATE Alassani, Ingénieur en informatique, Télécoms, Directeur Général de HIT-T et Enseignant à FORMATEC qui a mis ses connaissances comme sa personne à ma disposition pour la bonne marche de ce travail ; 
+Aux membres de ma famille :
+à mon frère 
+ADIBOLO Komi Parfait
+, qui n’a jamais baissé les bras pour me rendre heureux et dont mes études et ma réussite ont été une priorité ;
+à ma sœur 
+ADIBOLO Essi Florentine
+,
+ pour ses encouragements, ses conseils et son soutien ;
+à ma cousine 
+AMENUVOR AKOSSIWA Grace
+, pour ses encouragements, ses conseils et son soutien ;
+à la famille 
+TSOLENYANU
+, pour toute l’attention que vous m’avez toujours donnée.
+à mes neveux et nièces pour leurs encouragements ;
+à mes cousins et cousines pour leurs encouragements ;
+
+ à tous mes ami(e)s et camarades : 
+à tous mes ami(e)s pour vos conseils et encouragements ;  
+à tous mes camarades de promotion, pour les moments forts que nous avons vécus ensemble ;     
+à tous ceux qui de près ou de loin ont contribué à ma formation ; qu’ils trouvent    ici l’expression de mes chaleureux remerciements. 
+ABSTRACT
+In an economic context characterized by price instability and rising living costs in West Africa, personal financial management represents a major challenge for young workers and urban households. The majority of the population continues to rely on traditional expense tracking methods, such as handwritten notes or rough calculations, which present numerous shortcomings in terms of visibility, planning and anticipation of financial contingencies.
+This thesis presents the design and development of a mobile application dedicated to personal expense planning and tracking, specially adapted to the West African socio-economic context. The main objective is to provide an intuitive, secure and functional digital solution, enabling users to centralize their transactions, categorize their expenses, plan their budgets and visualize the evolution of their finances through interactive dashboards.
+The methodological approach adopted includes a data collection phase from target users, an analysis of functional and non-functional requirements, system design using MERISE and UML methods, application implementation and validation testing. The application was developed using modern mobile technologies and a secure database, ensuring the confidentiality of users' financial information.
+The results demonstrate that the developed application effectively meets the identified needs: it offers an ergonomic and accessible interface, comprehensive budget management features and financial forecasting tools. Validation tests confirmed the reliability, performance and security of the solution.
+This work contributes to improving users' financial autonomy and opens up interesting prospects for the development of digital tools adapted to African realities.
+Keywords: 
+Mobile application, personal financial management, expense planning, budget, West Africa, mobile development, data security.
+LISTE DES ABRÉVIATIONS ET SIGLES
+Sigle / Abréviation
+Signification
+API
+Application Programming Interface (Interface de Programmation d'Application)
+CRUD
+Create, Read, Update, Delete
+DB
+Database (Base de données)
+IDE
+Integrated Development Environment (Environnement de Développement Intégré)
+JSON
+JavaScript Object Notation
+MCD
+Modèle Conceptuel des Données
+MCT
+Modèle Conceptuel des Traitements
+MERISE
+Méthode d'Étude et de Réalisation Informatique par les Sous-Ensembles
+MLD
+Modèle Logique des Données
+MPD
+Modèle Physique des Données
+ORM
+Object-Relational Mapping
+REST
+Representational State Transfer
+ROI
+Return On Investment (Retour sur Investissement)
+SDK
+Software Development Kit
+SQL
+Structured Query Language (Langage de Requête Structuré)
+SSL
+Secure Sockets Layer
+TIE
+Technologie Industrielle et Énergie
+UML
+Unified Modeling Language (Langage de Modélisation Unifié)
+UI
+User Interface (Interface Utilisateur)
+UX
+User Experience (Expérience Utilisateur)
+TABLE DES MATIÈRES
+DÉDICACE
+II
+REMERCIEMENTS
+III
+RÉSUMÉ
+IV
+ABSTRACT
+V
+LISTE DES ABREVIATIONS ET SIGLES
+VI
+TABLE DES MATIERES
+VII
+LISTE DES FIGURES ET TABLEAUX
+IX
+INTRODUCTION 
+1
+REVUE DE LA LITTÉRATURE
+5
+1.1 Généralités sur l'informatique
+5
+1.1.1 Élaboration d'un programme informatique
+5
+1.1.2 Notion de méthode de conception
+6
+1.1.3 Méthode MERISE
+7
+1.1.4 Langage de modélisation UML
+9
+1.1.5 Langages de programmation
+11
+1.1.6 Développement intégré
+12
+1.1.7 Notion de Framework
+13
+1.2 Technologie du mobile et du web
+14
+1.2.1 Notion d'application web
+14
+1.2.2 Notion d'application mobile
+15
+1.2.3 Architecture des applications mobiles
+16
+1.2.4 Fonctionnement d'une application mobile
+17
+1.2.5 Hébergement d'une application mobile
+18
+1.3 Travaux antérieurs
+19
+1.3.1 Conception et réalisation d'une application de gestion financière (MBALLO, 2019)
+19
+1.3.2 Conception et réalisation d'une application web de gestion des inscriptions (DJIRAIBE, 2022)
+20
+1.3.3 Conception et réalisation d'une application mobile de gestion d'alertes (PATY, 2023)
+21
+CONTEXTE DE L'ÉTUDE ET MÉTHODOLOGIE DE TRAVAIL
+23
+2.1 Contexte de l'étude
+23
+2.1.1 Position du problème
+23
+2.1.2 Objectifs de l'étude
+25
+2.1.3 Hypothèses et limites de l'étude
+27
+2.2 Méthodologie de travail
+28
+2.2.1 Collecte des données
+28
+2.2.2 Dépouillement, analyse et traitement des données
+30
+2.2.3 Mise en œuvre de l'application
+31
+2.2.4 Tests de fonctionnalités et validation
+32
+2.2.5 Déploiement de l'application
+33
+CONCEPTION, IMPLÉMENTATION ET TESTS
+35
+3.1 Conception de l'application
+35
+3.1.1 Choix des méthodes
+35
+3.1.2 Identification et analyse des besoins
+36
+3.1.3 Besoins fonctionnels
+38
+3.1.4 Besoins non fonctionnels
+40
+3.1.5 Modélisation et diagrammes MERISE
+41
+3.2 Implémentation de l'application
+50
+3.2.1 Choix des outils de développement
+50
+3.2.2 Création et démarrage du projet
+52
+3.2.3 Écriture et exécution du code
+53
+3.2.4 Gestion des droits d'accès
+55
+3.3 Présentation de l'application
+56
+3.4 Opérations avec l'application
+62
+3.5 Tests de validation
+64
+3.6 Étude financière de l'application
+68
+3.7 Synthèse des résultats et discussion
+71
+CONCLUSION ET RECOMMANDATIONS
+74
+REFERENCES BIBLIOGRAPHIQUES
+76
+ANNEXES
+78
+LISTE DES FIGURES ET TABLEAUX
+Liste des Figures
+N°
+Titre de la Figure
+Page
+Figure 1
+Cycle de développement d'un programme informatique
+6
+Figure 2
+Schéma de la méthode MERISE
+8
+Figure 3
+Niveaux de modélisation UML
+10
+Figure 4
+Architecture d'une application mobile
+16
+Figure 5
+Fonctionnement d'une application mobile
+17
+Figure 6
+Répartition des méthodes de suivi financier utilisées
+29
+Figure 7
+Diagramme des cas d'utilisation
+37
+Figure 8
+Modèle Conceptuel des Données (MCD)
+42
+Figure 9
+Modèle Conceptuel des Traitements (MCT)
+44
+Figure 10
+Modèle Logique des Données (MLD)
+45
+Figure 11
+Diagramme de séquence - Authentification
+46
+Figure 12
+Diagramme de séquence - Ajout de dépense
+47
+Figure 13
+Diagramme d'interaction d'authentification
+48
+Figure 14
+Architecture technique de l'application
+51
+Figure 15
+Page de démarrage de l'application
+56
+Figure 16
+Page d'authentification et d'inscription
+57
+Figure 17
+Page de consultation et saisie des dépenses
+58
+Figure 18
+Page de planification et budgétisation
+59
+Figure 19
+Page de suivi et visualisation des transactions
+60
+Figure 20
+Page de paramétrage du profil utilisateur
+61
+Liste des Tableaux
+N°
+Titre du Tableau
+Page
+Tableau 1
+Comparaison des applications de gestion financière existantes
+20
+Tableau 2
+Résultats de l'enquête auprès des utilisateurs cibles
+30
+Tableau 3
+Besoins fonctionnels de l'application
+38
+Tableau 4
+Besoins non fonctionnels de l'application
+40
+Tableau 5
+Dictionnaire de données
+49
+Tableau 6
+Description des tables de la base de données
+50
+Tableau 7
+Technologies et outils utilisés
+51
+Tableau 8
+Résultats des tests fonctionnels
+65
+Tableau 9
+Résultats des tests de performance
+66
+Tableau 10
+Résultats des tests de sécurité
+67
+Tableau 11
+Coût de développement de l'application
+68
+Tableau 12
+Coût d'hébergement et de maintenance
+69
+Tableau 13
+Estimation du retour sur investissement
+71
+ 
+      
+ 
+ 
+      
+  INTRODUCTION
+ 
+Le XXIe siècle est marqué par une révolution numérique sans précédent, qui bouleverse en profondeur l'ensemble des activités humaines, y compris la gestion des finances personnelles. En Afrique de l'Ouest, cette transformation se confronte à des réalités socio-économiques particulières : volatilité des prix, faible bancarisation de la population et omniprésence des échanges en espèces.
+Face à ce contexte, gérer ses finances au quotidien représente un véritable défi pour une large frange de la population. Jeunes actifs, salariés modestes, petits entrepreneurs et ménages urbains éprouvent des difficultés à contrôler leurs dépenses, à établir un budget mensuel rigoureux et à maintenir une épargne régulière. La plupart d'entre eux s'en remettent encore à des méthodes rudimentaires  cahiers de comptes, notes manuscrites ou simple mémorisation  pour assurer le suivi de leurs transactions.
+Ces pratiques traditionnelles révèlent rapidement leurs insuffisances : peu fiables et difficilement exploitables, elles ne permettent ni de visualiser l'évolution des dépenses dans le temps, ni d'établir des prévisions budgétaires. Il en résulte une gestion approximative des ressources, une incapacité à faire face aux imprévus et, parfois, des situations d'endettement qui auraient pu être évitées.
+L'essor des technologies mobiles constitue une opportunité déterminante pour pallier ces lacunes. En Afrique de l'Ouest, la pénétration des smartphones progresse à un rythme soutenu et Internet est désormais accessible à une majorité de citoyens principalement via leurs téléphones. Cette dynamique crée un terrain favorable au déploiement d'applications mobiles conçues en adéquation avec les besoins locaux, susceptibles de transformer durablement les comportements financiers des populations.
+C'est dans cette perspective que s'inscrit le présent mémoire, consacré à la conception et à la réalisation d'une application mobile de planification des dépenses. L'ambition est de proposer une solution numérique à la fois innovante, intuitive et sécurisée, permettant à chaque utilisateur de piloter ses finances personnelles depuis son smartphone. L'application a pour vocation de centraliser le suivi des transactions, d'accompagner la planification budgétaire, d'offrir des outils de visualisation graphique et d'alerter l'utilisateur en cas de dépassement de budget.
+La problématique centrale de ce travail s'articule autour de la question suivante : comment concevoir une application mobile permettant aux utilisateurs d'Afrique de l'Ouest de gérer et planifier efficacement leurs dépenses, en garantissant une expérience fluide et sécurisée ? Quels choix techniques et fonctionnels permettront d'assurer la fiabilité du système, la confidentialité des données et, in fine, l'adoption effective de la solution en vue d'améliorer la discipline budgétaire et la prise de décisions financières ?
+Pour répondre à ces interrogations, notre démarche repose sur trois hypothèses principales. D'abord, une application intuitive et sécurisée devrait sensiblement améliorer la gestion et l'anticipation des dépenses des utilisateurs. Ensuite, l'intégration de fonctionnalités de suivi personnalisé et de notifications devrait favoriser l'engagement et la fidélisation. Enfin, une centralisation des flux 
+financiers devrait réduire les erreurs, limiter les pertes d'information et encourager une meilleure rigueur budgétaire.
+Ce mémoire s'organise en trois chapitres. Le premier dresse une revue de la littérature portant sur les fondements de l'informatique, les technologies mobiles et les travaux existants dans le domaine de la gestion financière numérique. Le deuxième présente le contexte de l'étude ainsi que la méthodologie adoptée. Le troisième détaille la conception, l'implémentation et les tests de l'application réalisée. Le mémoire s'achève par une synthèse des résultats et des recommandations pour les développements futurs de la solution.
+REVUE DE LA LITTERATURE
+Ce premier chapitre présente le cadre théorique et conceptuel de notre étude. Il couvre les fondements informatiques sur lesquels repose notre projet, les spécificités des technologies mobiles et du web, ainsi qu'une analyse critique des travaux antérieurs directement liés à notre domaine de recherche.
+1.1 Généralités sur l'Informatique
+1.1.1 Élaboration d'un Programme Informatique
+Un programme informatique est un ensemble d'instructions écrites dans un langage de programmation, destinées à être exécutées par un ordinateur afin d'accomplir une tâche spécifique. L'élaboration d'un programme passe par plusieurs étapes fondamentales qui constituent ce qu'on appelle le cycle de développement logiciel.
+La première étape est l'analyse des besoins, qui consiste à identifier et formaliser les exigences fonctionnelles et non fonctionnelles du système à développer. Cette phase est cruciale car elle conditionne la qualité et la pertinence de la solution finale. Elle implique des échanges avec les utilisateurs finaux pour comprendre leurs attentes et leurs contraintes.
+La deuxième étape est la conception, qui traduit les besoins identifiés en une architecture logicielle. Il s'agit de définir la structure du programme, les composants qui le constituent, leurs interactions et les algorithmes à mettre en œuvre. Cette phase fait appel à des méthodes et des outils de modélisation que nous présenterons dans les sections suivantes.
+La troisième étape est le codage ou implémentation, qui consiste à traduire la conception en un code source exécutable par l'ordinateur. Le choix du langage de programmation dépend de la nature du projet, des contraintes techniques et des compétences disponibles.
+La quatrième étape est les tests, qui visent à vérifier que le programme fonctionne correctement et répond aux besoins identifiés. On distingue les tests unitaires, les tests d'intégration et les tests fonctionnels.
+Enfin, la cinquième étape est la maintenance, qui consiste à corriger les anomalies détectées après la mise en production et à faire évoluer le programme en fonction des nouveaux besoins.
+Figure 1 — Cycle de développement d'un programme informatique
+1.1.2 Notion de Méthode de Conception
+Une méthode de conception est un ensemble structuré de principes, de concepts et de techniques permettant de guider le développement d'un système d'information. Elle fournit un cadre méthodologique cohérent pour analyser les besoins, modéliser le système et concevoir les solutions logicielles.
+Les méthodes de conception peuvent être classées en deux grandes catégories : les méthodes structurées et les méthodes orientées objet. Les méthodes structurées, comme MERISE, décrivent le système en termes de données et de traitements. Les méthodes orientées objet, dont UML est le langage de modélisation de référence, décrivent le système en termes d'objets interagissant entre eux.
+L'utilisation d'une méthode de conception présente plusieurs avantages. Elle favorise une approche rigoureuse et systématique du développement, facilite la communication entre les membres de l'équipe projet, permet une meilleure documentation du système et réduit les risques d'erreurs et d'omissions.
+Dans le cadre de notre projet, nous avons choisi d'utiliser conjointement la méthode MERISE pour la modélisation des données et le langage UML pour la modélisation 
+des traitements et des interactions. Ce choix est justifié par la complémentarité de ces deux approches et leur adéquation avec les exigences de notre projet.
+1.1.3 Méthode MERISE
+MERISE (Méthode d'Étude et de Réalisation Informatique par les Sous-Ensembles) est une méthode de conception et de développement de systèmes d'information développée en France dans les années 1970-1980. Elle a été largement adoptée dans les milieux académiques et professionnels francophones pour sa rigueur et sa capacité à décrire de manière exhaustive les aspects statiques et dynamiques d'un système.
+MERISE repose sur une approche par niveaux de modélisation, distinguant le niveau conceptuel, le niveau logique et le niveau physique. Cette décomposition permet d'aborder progressivement la complexité du système en passant du général au particulier.
+Au niveau conceptuel, MERISE propose deux modèles principaux. Le Modèle Conceptuel des Données (MCD) représente les entités du monde réel et leurs associations, en s'abstrayant des contraintes techniques d'implémentation. Il permet d'identifier les objets manipulés par le système et les relations qui les unissent. Le Modèle Conceptuel des Traitements (MCT) représente les processus métier du système, c'est-à-dire la manière dont les données sont transformées au cours du temps.
+Au niveau logique, le Modèle Logique des Données (MLD) traduit le MCD en termes de tables relationnelles, en tenant compte des contraintes de la technologie de gestion de bases de données utilisée. Le Modèle Logique des Traitements (MLT) affine la description des processus en intégrant les contraintes organisationnelles.
+Au niveau physique, le Modèle Physique des Données (MPD) décrit l'implémentation concrète de la base de données sur le support informatique choisi. Le Modèle Physique des Traitements (MPT) spécifie les procédures de traitement en termes techniques.
+Dans notre projet, nous utiliserons principalement le MCD pour modéliser notre base de données et le MCT pour représenter les processus de gestion financière.
+Figure 2 — Schéma de la méthode MERISE
+1.1.4 Langage de Modélisation UML
+UML (Unified Modeling Language) est un langage de modélisation graphique standardisé, adopté comme norme internationale par l'OMG (Object Management Group) en 1997. Il est utilisé pour visualiser, spécifier, construire et documenter les artefacts d'un système logiciel.
+UML propose une riche palette de diagrammes répartis en deux grandes catégories :les diagrammes structurels et les diagrammes comportementaux. Les diagrammes structurels décrivent la structure statique du système : diagramme de classes, diagramme d'objets, diagramme de composants, diagramme de déploiement, diagramme de packages. Les diagrammes comportementaux décrivent le comportement dynamique du système : diagramme de cas d'utilisation, diagramme de séquence, diagramme d'activité, diagramme d'état-transition, diagramme de communication.
+Le diagramme des cas d'utilisation est particulièrement important dans notre projet car il permet de représenter les fonctionnalités offertes par l'application du point de vue des utilisateurs (acteurs). Il facilite la communication avec les parties prenantes et sert de base à la définition des exigences fonctionnelles.
+Le diagramme de séquence représente les interactions entre les acteurs et les composants du système au fil du temps. Il est essentiel pour décrire le déroulement des processus métier importants, comme l'authentification de l'utilisateur ou l'enregistrement d'une dépense.
+Dans notre projet, nous utilisons des diagrammes de cas d'utilisation pour identifier les fonctionnalités de l'application, des diagrammes de séquence pour décrire les interactions, et des diagrammes d'activité pour représenter les flux de traitement.
+1.1.5 Langages de Programmation
+Un langage de programmation est un ensemble de règles syntaxiques et sémantiques permettant à un développeur de formuler des instructions compréhensibles par un ordinateur. Il existe une grande diversité de langages de programmation, chacun adapté à des types de problèmes et d'environnements particuliers.
+Pour le développement d'applications mobiles, les langages les plus couramment utilisés sont Kotlin et Java pour Android, Swift et Objective-C pour iOS, ainsi que Dart (avec le framework Flutter) et JavaScript (avec React Native) pour le développement multiplateforme. Les langages multiplatformes présentent l'avantage de permettre le développement d'une seule base de code pouvant être déployée sur plusieurs systèmes d'exploitation.
+Pour le développement back-end, les langages populaires incluent PHP (avec Laravel), Python (avec Django ou Flask), Node.js (JavaScript côté serveur), Java (avec Spring Boot) et Ruby (avec Ruby on Rails). Le choix du langage back-end dépend des compétences de l'équipe, des performances attendues et de la compatibilité avec les autres technologies utilisées.
+Dans notre projet, nous avons opté pour Flutter/Dart pour le développement de l'application mobile, en raison de sa capacité à produire des applications performantes sur Android et iOS à partir d'une seule base de code. Pour le back-end, nous utilisons Laravel/PHP, un framework robuste et bien documenté, particulièrement adapté au développement d'API RESTful.
+1.1.6 Développement Intégré
+Le développement intégré, ou développement full-stack, désigne la maîtrise à la fois du développement front-end (interface utilisateur) et du développement back-end (logique serveur et gestion des données). Un développeur full-stack est capable de concevoir et réaliser l'ensemble des couches d'une application, depuis la présentation jusqu'à la persistance des données.
+Dans le contexte du développement mobile, le développement intégré implique la maîtrise de l'environnement de développement mobile (IDE, SDK), du langage de programmation cible, des frameworks d'interface utilisateur, des mécanismes de communication avec le serveur (API REST, WebSocket), et des outils de gestion de bases de données.
+Un Environnement de Développement Intégré (IDE) est un logiciel regroupant un ensemble d'outils facilitant le développement : éditeur de code avec coloration syntaxique et autocomplétion, compilateur ou interpréteur, débogueur, gestionnaire de versions, outils de test et de déploiement. Les IDEs les plus utilisés pour le développement mobile sont Android Studio, Xcode et Visual Studio Code.
+Dans notre projet, nous utilisons Visual Studio Code comme éditeur principal, complété par Android Studio pour les tests sur émulateur Android. Cette combinaison offre un environnement de développement complet et efficace pour notre projet Flutter.
+1.1.7 Notion de Framework
+Un framework (ou cadre de travail) est un ensemble cohérent de composants logiciels structurant et facilitant le développement d'applications. Il fournit une architecture de base, des bibliothèques de fonctions réutilisables et des conventions de développement, permettant aux développeurs de se concentrer sur la logique métier plutôt que sur les aspects techniques bas niveau.
+Les frameworks se distinguent des simples bibliothèques par le principe d'inversion de contrôle : ce n'est pas le développeur qui appelle le framework, mais le framework qui appelle le code du développeur aux moments appropriés. Cette architecture favorise la cohérence du code et facilite la maintenance.
+Pour le développement mobile, Flutter est un framework open-source créé par Google qui permet de développer des applications mobiles, web et desktop à partir d'une seule base de code en Dart. Il offre un ensemble riche de widgets 
+préconstruits, des performances natives et une grande flexibilité de personnalisation de l'interface utilisateur.
+Pour le développement back-end, Laravel est un framework PHP MVC (Modèle-Vue-Contrôleur) open-source qui facilite le développement d'applications web robustes et sécurisées. Il propose des fonctionnalités avancées telles que l'ORM Eloquent, le système de routage, la gestion des migrations de base de données, l'authentification et les tests automatisés.
+1.2 Technologie du Mobile et du Web
+1.2.1 Notion d'Application Web
+Une application web est un logiciel accessible via un navigateur web sur Internet ou un réseau local. Contrairement aux logiciels traditionnels qui nécessitent une installation sur chaque poste de travail, une application web fonctionne en mode client-serveur : le code s'exécute sur un serveur distant, et l'interface est affichée dans le navigateur de l'utilisateur.
+Les applications web présentent plusieurs avantages : accessibilité depuis n'importe quel appareil disposant d'un navigateur et d'une connexion Internet, mises à jour centralisées sans intervention sur les postes clients, et compatibilité multiplateforme. Elles trouvent leur application dans de nombreux domaines : commerce électronique, gestion d'entreprise, réseaux sociaux, services bancaires en ligne, etc.
+Du point de vue technique, une application web moderne s'appuie sur des technologies côté client (HTML5, CSS3, JavaScript) et des technologies côté serveur (PHP, Python, Node.js, etc.). Les frameworks front-end comme React, Angular ou Vue.js permettent de créer des interfaces riches et réactives, tandis que les frameworks back-end facilitent le développement de la logique métier et la gestion des données.
+Dans le contexte de notre projet, une interface web d'administration a été développée pour permettre la supervision de l'application mobile et la gestion des paramètres système. Cette interface complémentaire utilise Laravel pour le back-end et Bootstrap pour le front-end.
+1.2.2 Notion d'Application Mobile
+Une application mobile est un logiciel conçu spécifiquement pour fonctionner sur des appareils mobiles tels que les smartphones et les tablettes. Elle exploite les fonctionnalités particulières de ces appareils : écran tactile, capteurs (GPS, accéléromètre, caméra), notifications push, accès aux contacts et au calendrier, etc.
+On distingue trois types d'applications mobiles. Les applications natives sont développées spécifiquement pour une plateforme (Android ou iOS) en utilisant les langages et outils officiels de cette plateforme. Elles offrent les meilleures performances et un accès complet aux fonctionnalités du matériel, mais nécessitent un développement séparé pour chaque plateforme. Les applications web mobiles sont des sites web adaptés aux écrans mobiles, accessibles via le navigateur sans installation. Elles sont moins performantes que les applications natives mais faciles à maintenir. Les applications hybrides combinent les approches native et web : elles sont développées en utilisant des technologies web mais encapsulées dans un conteneur natif. Les applications multiplatformes comme Flutter ou React Native constituent une variante avancée de cette approche.
+Pour notre projet, nous avons choisi le développement multiplateforme avec Flutter, qui permet d'obtenir des performances proches du natif tout en maintenant une seule base de code pour Android et iOS. Ce choix est stratégique dans le contexte africain où les utilisateurs disposent à la fois d'appareils Android et iOS.
+1.2.3 Architecture des Applications Mobiles
+L'architecture d'une application mobile définit la structure générale du logiciel et les principes organisant ses différents composants. Une bonne architecture favorise la maintenabilité, la testabilité, la scalabilité et la réutilisabilité du code.
+L'architecture la plus couramment utilisée dans le développement mobile est l'architecture en couches. La couche présentation (UI) gère l'interface utilisateur et les interactions avec l'utilisateur. La couche logique métier (Business Logic) implémente les règles et processus métier de l'application. La couche d'accès aux données (Data Access) gère la persistance et la récupération des données, que ce soit en local (base de données SQLite) ou via des services distants (API REST).
+Dans notre application, nous avons adopté le pattern architectural MVVM (Model-View-ViewModel), qui est particulièrement bien adapté au développement Flutter. 
+Dans ce modèle, la View représente l'interface utilisateur, le ViewModel contient la logique de présentation et gère l'état de l'interface, et le Model représente les données et la logique métier. Ce pattern favorise une séparation claire des responsabilités et facilite les tests unitaires.
+La communication entre l'application mobile et le serveur back-end se fait via une API REST (Representational State Transfer). Les données sont échangées au format JSON, un format léger et universel. L'authentification est gérée par des tokens JWT (JSON Web Tokens), qui garantissent la sécurité des échanges sans nécessiter de sessions côté serveur.
+Figure 4 — Architecture d'une application mobile
+1.2.4 Fonctionnement d'une Application Mobile
+Le fonctionnement d'une application mobile repose sur une interaction constante entre différents composants techniques. À l'initialisation, l'application charge ses ressources statiques (images, fichiers de configuration, thèmes) et établit une connexion avec le serveur back-end pour récupérer les données de l'utilisateur authentifié.
+Le cycle de vie d'une application mobile est géré par le système d'exploitation. Sur Android, les états principaux sont : Created (l'activité est créée), Started (l'activité est visible), Resumed (l'activité est au premier plan et interactive), Paused (l'activité 
+est partiellement visible), Stopped (l'activité n'est plus visible) et Destroyed (l'activité est détruite). La gestion correcte de ce cycle de vie est essentielle pour garantir une expérience utilisateur fluide et économiser la batterie.
+Les notifications push permettent à l'application d'envoyer des alertes à l'utilisateur même lorsqu'elle est en arrière-plan ou fermée. Dans notre application, elles sont utilisées pour prévenir l'utilisateur en cas de dépassement de budget ou pour lui rappeler de saisir ses dépenses. La technologie Firebase Cloud Messaging (FCM) est utilisée pour la gestion des notifications sur Android et iOS.
+La synchronisation des données entre l'application mobile et le serveur est gérée de manière asynchrone pour ne pas bloquer l'interface utilisateur. L'application maintient une copie locale des données dans SQLite, permettant une utilisation hors ligne, et synchronise avec le serveur dès qu'une connexion Internet est disponible.
+Figure 5 — Fonctionnement d'une application mobile
+1.2.5 Hébergement d'une Application Mobile
+L'hébergement d'une application mobile comprend deux aspects distincts : la distribution de l'application aux utilisateurs et l'hébergement du back-end (serveur et base de données).
+Pour la distribution de l'application, les deux principales plateformes sont le Google Play Store pour Android et l'Apple App Store pour iOS. Ces marketplaces permettent aux utilisateurs de télécharger et installer facilement l'application. Le processus de publication implique la création d'un compte développeur, la soumission de l'application pour validation, et la mise à jour régulière du listing avec des captures d'écran et une description attrayante.
+Pour l'hébergement du back-end, plusieurs options sont disponibles. Les serveurs dédiés ou mutualisés offrent un contrôle total sur l'environnement mais nécessitent une expertise en administration système. Les services cloud comme AWS (Amazon Web Services), Google Cloud Platform ou Microsoft Azure offrent une infrastructure flexible et scalable, avec des outils de monitoring et de déploiement automatisé. Pour un projet de cette envergure, nous recommandons l'utilisation d'un VPS (Virtual Private Server) avec Ubuntu, complété par un certificat SSL pour sécuriser les communications.
+La base de données MySQL sera hébergée sur le même serveur que l'application back-end Laravel. Des sauvegardes automatiques quotidiennes sont configurées pour garantir la récupération des données en cas d'incident. Un système de monitoring (Uptime Robot, Grafana) sera mis en place pour surveiller la disponibilité et les performances du serveur.
+1.3 Travaux Antérieurs
+La revue des travaux antérieurs nous permet de nous situer par rapport à l'état de l'art dans notre domaine et d'identifier les approches méthodologiques et techniques qui ont été éprouvées. Nous présentons ici trois travaux directement pertinents pour notre étude.
+1.3.1 Conception et Réalisation d'une Application de Gestion Financière Personnelle : Cas du Sénégal (MBALLO, 2019)
+Le mémoire de MBALLO A. (2019), soutenu dans le cadre du Master MIAGE à l'Université de Dakar, portait sur la conception d'une application mobile permettant aux utilisateurs de suivre en temps réel leurs revenus et leurs dépenses. Ce travail constitue une référence importante pour notre étude en raison de ses similarités thématiques et contextuelles.
+Sur le plan méthodologique, MBALLO a conduit une analyse approfondie des besoins des utilisateurs à travers un questionnaire administré à un échantillon représentatif de la population dakaroise. Cette démarche a permis d'identifier les attentes spécifiques des utilisateurs africains en matière de gestion financière, notamment l'importance de l'interface en langue locale, la simplicité d'utilisation et l'adaptation aux modes de paiement locaux.
+Techniquement, la solution développée utilisait Android Studio pour le développement mobile et Firebase Realtime Database pour la gestion des données en temps réel. L'application permettait aux utilisateurs de saisir et classer leurs opérations financières, et de consulter des statistiques mensuelles présentées sous forme de graphiques simples.
+Les limites de ce travail résident dans son périmètre relativement restreint : l'application se limitait aux fonctionnalités de base de suivi des dépenses sans proposer de fonctionnalités avancées de planification budgétaire, d'alertes de dépassement ou de prévision financière. De plus, l'application n'était disponible que sur Android, excluant les utilisateurs iOS.
+Notre travail s'appuie sur les enseignements de MBALLO en adoptant une approche similaire de collecte des besoins, tout en enrichissant significativement les fonctionnalités offertes et en optant pour une solution multiplateforme. Nous reprenons également l'idée du stockage cloud pour garantir la fiabilité et la récupération des données.
+1.3.2 Conception et Réalisation d'une Application Web de Gestion des Inscriptions pour l'Institut FORMATEC (DJIRAIBE, 2022)
+Le travail de DJIRAIBE S. R. (2022), réalisé dans le cadre d'une Licence Professionnelle à FORMATEC, portait sur le développement d'une application web pour gérer les inscriptions et réinscriptions à l'institut. Bien que relevant d'un domaine différent du nôtre, ce projet apporte des contributions méthodologiques et techniques pertinentes pour notre étude.
+Sur le plan méthodologique, DJIRAIBE a utilisé une approche systématique combinant la modélisation avec Power Designer (pour la conception de la base de données) et l'implémentation avec Laravel et MySQL. Cette approche rigoureuse, 
+alliant conception préalable et développement itératif, correspond à la démarche que nous adoptons dans notre projet.
+Les fonctionnalités développées par DJIRAIBE incluaient l'automatisation de l'attribution des numéros matricules, le regroupement des inscriptions par année et niveau, et l'export des données en formats CSV, PDF et Excel. Ces fonctionnalités de génération de rapports et d'export sont directement transposables à notre contexte : notre application génère des rapports financiers exportables permettant aux utilisateurs de partager ou d'archiver leurs données financières.
+Une contribution importante de ce travail réside dans la démonstration que la centralisation des données utilisateur et l'automatisation des processus répétitifs améliorent significativement l'efficacité et réduisent les erreurs humaines. Ces principes s'appliquent directement à notre application de gestion financière, où la catégorisation automatique des dépenses et la génération de rapports constituent des fonctionnalités clés.
+Nous nous inspirons de l'architecture MVC de Laravel utilisée par DJIRAIBE pour notre back-end, ainsi que de son approche de conception de base de données relationnelle. Cependant, notre projet se distingue par son orientation mobile et par la richesse des fonctionnalités financières proposées.
+1.3.3 Conception et Réalisation d'une Application Mobile de Gestion d'Alertes dans les Services au Togo (PATY, 2023)
+Le mémoire de PATY Daniel Komi (2023), soutenu à l'Institut FORMATEC dans le cadre d'une Licence Professionnelle en Maintenance Informatique et Réseaux, porte sur la conception d'une application mobile de gestion des alertes et des notifications au sein des services publics et privés au Togo. Ce travail est particulièrement pertinent pour notre étude en raison de son contexte togolais et de ses similarités techniques.
+L'une des contributions majeures de PATY est la démonstration de l'efficacité des applications mobiles comme outils de modernisation des services dans le contexte africain. En développant une solution adaptée aux contraintes locales (connectivité parfois limitée, diversité des appareils), PATY a montré la faisabilité et l'adoption d'outils numériques mobiles par les utilisateurs togolais, ce qui valide notre approche dans le domaine financier.
+Sur le plan technique, PATY a mis en place un système de sauvegarde des données sur serveur distant, une fonctionnalité que nous reprenons dans notre application. La synchronisation entre l'application mobile et le serveur central garantit la disponibilité et la sécurité des données financières de nos utilisateurs, même en cas de perte ou de changement de téléphone.
+Le système d'alertes et de notifications développé par PATY nous inspire directement pour la conception de notre module d'alertes budgétaires. En adaptant son approche à notre contexte, nous proposons un système de notifications personnalisables permettant d'avertir l'utilisateur lorsqu'il approche ou dépasse les limites de budget qu'il s'est fixées.
+En synthèse, ces trois travaux antérieurs nous fournissent un cadre de référence solide, tant sur le plan méthodologique que technique. Ils confirment la pertinence de notre approche et nous permettent d'identifier les points d'amélioration à apporter pour proposer une solution plus complète et mieux adaptée aux besoins des utilisateurs ouest-africains.
+CONTEXTE DE L’ETUDE ET METHODOLOGIE DE TRAVAIL
+Ce chapitre présente le cadre contextuel dans lequel s'inscrit notre étude, définit les objectifs poursuivis et expose la démarche méthodologique adoptée pour mener à bien ce projet.
+2.1 Contexte de l'Étude
+2.1.1 Position du Problème de l'Étude
+L'Afrique de l'Ouest connaît depuis deux décennies une urbanisation accélérée accompagnée d'une croissance démographique soutenue. Les villes comme Lomé (Togo), Accra (Ghana), Abidjan (Côte d'Ivoire) et Dakar (Sénégal) voient affluer des populations jeunes en quête d'emploi et d'opportunités économiques. Cette transformation socio-démographique s'accompagne d'une monétarisation croissante des échanges et d'une diversification des sources de revenus.
+Dans ce contexte, la gestion des finances personnelles est devenue une compétence essentielle. Cependant, cette compétence fait encore défaut chez une grande partie de la population, en particulier chez les jeunes adultes. Plusieurs facteurs expliquent cette situation.
+Premièrement, le système éducatif ne prépare pas suffisamment les jeunes à la gestion financière. Les notions d'épargne, de budget et d'investissement sont rarement enseignées à l'école, laissant les individus démunis face aux défis financiers de la vie adulte.
+Deuxièmement, l'accès aux services bancaires formels reste limité, bien qu'en progression grâce au développement du Mobile Money. Selon les données de la Banque mondiale, environ 40% de la population adulte en Afrique subsaharienne disposait d'un compte financier en 2022, contre 68% dans les pays à revenu élevé. Cette situation limite l'accès aux outils de gestion financière traditionnels comme les relevés de compte automatiques ou les alertes bancaires.
+Troisièmement, l'instabilité économique caractérisée par la fluctuation des prix, l'inflation et l'irrégularité des revenus rend la planification financière particulièrement difficile. Les individus à revenus variables ont besoin d'outils flexibles capables de s'adapter à leur situation financière changeante.
+Face à ces réalités, le téléphone mobile apparaît comme le vecteur le plus approprié pour déployer des solutions de gestion financière. Avec un taux de pénétration des 
+smartphones en Afrique subsaharienne atteignant 44% en 2023 selon la GSMA et en progression constante, le mobile représente le principal point d'accès à l'économie numérique pour des millions de personnes.
+Cependant, les applications de gestion financière existantes sur le marché sont principalement conçues pour des contextes occidentaux. Elles présentent des interfaces complexes, supposent un accès permanent à Internet, ne supportent pas les devises locales comme le Franc CFA, et n'intègrent pas les modes de paiement spécifiques à l'Afrique de l'Ouest comme le Mobile Money (Orange Money, MTN Mobile Money, Flooz).
+C'est dans ce vide qu'intervient notre projet. Nous proposons de concevoir et réaliser une application mobile de planification de dépense spécifiquement adaptée au contexte ouest-africain, combinant simplicité d'utilisation, adaptation aux réalités locales et fonctionnalités avancées de gestion budgétaire.
+2.1.2 Objectifs de l'Étude
+2.1.2.1 Objectif Général
+L'objectif général de cette étude est de concevoir et réaliser une application mobile permettant aux utilisateurs en Afrique de l'Ouest, et particulièrement au Togo, de gérer efficacement leurs finances personnelles grâce à des outils de suivi, de planification et de prévision budgétaire accessibles depuis leur smartphone.
+2.1.2.2 Objectifs Spécifiques
+Pour atteindre cet objectif général, nous nous fixons les objectifs spécifiques suivants :
+Examiner les difficultés rencontrées par les individus dans le suivi et la planification de leurs dépenses, afin de mieux comprendre les limites des méthodes actuelles et d'identifier les fonctionnalités prioritaires de l'application.
+Évaluer l'apport des technologies mobiles dans l'amélioration de la gestion financière personnelle, notamment en matière d'accessibilité, d'efficacité et d'accompagnement décisionnel, en s'appuyant sur des études de cas et des travaux antérieurs.
+Concevoir et développer une application mobile permettant le suivi et la prévision des dépenses, en tenant compte des réalités socio-économiques locales, notamment la prévalence des transactions en espèces, l'utilisation du Mobile Money et la diversité des profils d'utilisateurs.
+Analyser l'impact potentiel d'un tel outil sur l'autonomie financière et la discipline budgétaire des utilisateurs, à travers des tests d'utilisabilité et des indicateurs de performance mesurables.
+Proposer une architecture technique sécurisée et ergonomique, favorisant la protection des données personnelles et financières des utilisateurs, conformément aux meilleures pratiques en matière de sécurité des applications mobiles.
+2.1.3 Hypothèses et Limites de l'Étude
+2.1.3.1 Hypothèses de l'Étude
+Notre étude repose sur trois hypothèses de recherche principales :
+Hypothèse 1 : Une application mobile intuitive et sécurisée améliorera significativement la gestion et la prévision des dépenses des utilisateurs. Nous supposons que la mise à disposition d'un outil numérique adapté incitera les utilisateurs à adopter des comportements financiers plus responsables et à mieux planifier leurs dépenses.
+Hypothèse 2 : L'intégration de fonctionnalités de suivi personnalisé et de notifications augmente l'engagement et la fidélisation des utilisateurs. Nous faisons l'hypothèse que les alertes budgétaires et les rappels personnalisés maintiennent la motivation des utilisateurs à documenter leurs transactions et à respecter leur budget.
+Hypothèse 3 : Une gestion centralisée des flux financiers réduit les erreurs, les pertes d'informations et favorise une meilleure discipline budgétaire. Nous supposons que la centralisation de toutes les transactions dans une seule application offre une visibilité globale sur les finances qui facilite la prise de décision.
+2.1.3.2 Limites de l'Étude
+Toute étude scientifique comporte des limites qu'il convient de mentionner pour situer la portée des résultats obtenus. Les principales limites de notre étude sont les suivantes :
+Limite temporelle : La phase de collecte de données et de validation a été réalisée sur une période relativement courte, ce qui ne permet pas d'évaluer les effets à long terme de l'application sur les comportements financiers des utilisateurs.
+Limite géographique : Bien que l'application soit conçue pour le contexte ouest-africain, notre étude se concentre principalement sur le Togo, et plus 
+spécifiquement sur la ville de Lomé. Les résultats peuvent ne pas être directement transposables à d'autres pays de la région sans adaptation.
+Limite de l'échantillon : L'enquête a été réalisée auprès d'un échantillon de convenance composé principalement de jeunes actifs et d'étudiants ayant accès à un smartphone. Les résultats ne sont pas nécessairement représentatifs de l'ensemble de la population ouest-africaine.
+Limite technologique : L'application développée dans le cadre de ce mémoire constitue une version prototype fonctionnelle. Certaines fonctionnalités avancées, comme l'intégration directe avec les services de Mobile Money ou la reconnaissance automatique des transactions par OCR, n'ont pas été implémentées dans cette première version en raison des contraintes de temps et de ressources.
+2.2 Méthodologie de Travail
+La démarche méthodologique adoptée dans le cadre de ce projet suit un processus structuré en cinq étapes principales : la collecte de données, le dépouillement et l'analyse, la mise en œuvre, les tests de validation et le déploiement.
+2.2.1 Collecte des Données
+La collecte de données constitue le point de départ de notre projet. Elle vise à identifier les besoins réels des utilisateurs cibles, à comprendre leurs habitudes financières actuelles et à définir les fonctionnalités prioritaires de l'application.
+Nous avons adopté une approche mixte combinant des méthodes quantitatives et qualitatives. Pour l'approche quantitative, un questionnaire structuré a été administré à un échantillon de 120 personnes issues de différentes catégories socioprofessionnelles : jeunes actifs (salariés du secteur formel et informel), étudiants de l'enseignement supérieur, et petits entrepreneurs. Le questionnaire couvrait plusieurs thématiques : les méthodes actuelles de suivi des dépenses, les difficultés rencontrées dans la gestion financière, les habitudes de consommation, l'utilisation du smartphone et des applications, et les attentes vis-à-vis d'une application de gestion financière.
+Pour l'approche qualitative, des entretiens semi-directifs ont été conduits avec dix personnes ressources : des experts en finance personnelle, des conseillers 
+bancaires, des développeurs d'applications mobiles et des utilisateurs ayant déjà expérimenté des applications de gestion financière. Ces entretiens ont permis d'approfondir la compréhension des besoins et d'identifier des fonctionnalités auxquelles les utilisateurs n'auraient pas pensé spontanément.
+Parallèlement, une analyse comparative des applications de gestion financière existantes sur le marché a été réalisée. Nous avons étudié des applications locales et internationales : Wallet (BudgetBakers), Money Manager, YNAB (You Need A Budget), ainsi que quelques applications développées dans le contexte africain. Cette analyse a permis d'identifier les meilleures pratiques à reprendre et les lacunes à combler.
+Les résultats de la collecte ont révélé que 73% des personnes interrogées gèrent encore leurs finances de manière informelle, 85% expriment un besoin d'outil numérique adapté, et 91% affirment utiliser leur smartphone au moins deux heures par jour. Ces chiffres confirment la pertinence de notre projet et la disponibilité d'un marché réceptif.
+Figure 6 — Répartition des méthodes de suivi financier
+2.2.2 Dépouillement, Analyse et Traitement des Données
+Le dépouillement et l'analyse des données collectées constituent une étape cruciale permettant de transformer les informations brutes en spécifications fonctionnelles exploitables pour la conception de l'application.
+Les données quantitatives issues du questionnaire ont été saisies et analysées à l'aide de tableurs. Des statistiques descriptives ont été calculées pour chaque variable : fréquences, pourcentages, moyennes et écarts-types. Des graphiques ont été produits pour visualiser la distribution des réponses et identifier les tendances principales.
+L'analyse des données a permis de structurer les informations financières selon plusieurs dimensions. Les types de revenus identifiés comprennent les salaires fixes, les rémunérations variables (primes, commissions), les revenus d'activités secondaires (petit commerce, prestations de services) et les transferts (envois de fonds familiaux). Les catégories de dépenses identifiées couvrent le logement et les charges, l'alimentation et les courses, le transport, la santé et les soins, l'éducation et la formation, les loisirs et les sorties, les abonnements (téléphone, Internet), et les dépenses imprévues.
+L'analyse des habitudes de dépenses a révélé que les fréquences temporelles les plus courantes sont quotidienne (alimentation, transport), hebdomadaire (courses, loisirs), mensuelle (loyer, abonnements) et annuelle (renouvellement de matériel, frais de scolarité). Cette information a directement influencé la conception du module de saisie des transactions.
+Les données qualitatives issues des entretiens ont été analysées par thématisation. Cette méthode consiste à identifier les thèmes récurrents dans les discours des personnes interrogées, à les regrouper en catégories et à analyser leurs interrelations. Cette analyse a notamment mis en évidence l'importance de la confidentialité des données, la nécessité d'une interface en français accessible aux non-initiés, et la valeur ajoutée des fonctionnalités de prévision budgétaire.
+2.2.3 Mise en Œuvre de l'Application
+La phase de mise en œuvre comprend toutes les activités de conception et de développement de l'application, depuis l'architecture technique jusqu'à l'implémentation du dernier module fonctionnel.
+La première sous-phase est la conception architecturale, qui définit la structure générale de l'application : choix de l'architecture MVVM, conception de l'API REST back-end, définition du schéma de base de données, et identification des modules fonctionnels. Cette phase s'appuie sur les outils de modélisation MERISE et UML présentés au chapitre 1.
+La deuxième sous-phase est le développement front-end, qui comprend la réalisation des écrans de l'application mobile en Flutter/Dart. Nous avons adopté une approche de développement composants-first, en créant d'abord les widgets réutilisables (boutons, champs de saisie, cartes d'information) avant d'assembler les écrans complets. Cette approche favorise la cohérence visuelle et facilite la maintenance.
+La troisième sous-phase est le développement back-end, qui comprend la mise en place de l'API REST avec Laravel, la configuration de la base de données MySQL, l'implémentation des mécanismes d'authentification et d'autorisation, et le développement des endpoints pour chaque fonctionnalité de l'application.
+La quatrième sous-phase est l'intégration, qui consiste à connecter le front-end et le back-end et à s'assurer que les données circulent correctement entre l'application mobile et le serveur. Cette phase implique notamment la gestion des tokens d'authentification, la sérialisation/désérialisation des données JSON et la gestion des erreurs réseau.
+2.2.4 Tests de Fonctionnalités et Validation de l'Application
+La phase de tests est indispensable pour garantir la qualité et la fiabilité de l'application avant sa mise en production. Nous avons mis en place un plan de tests complet couvrant différentes dimensions de la qualité logicielle.
+Les tests unitaires visent à vérifier le fonctionnement correct de chaque composant individuel de l'application : widgets Flutter, fonctions de calcul financier, méthodes de l'API. Ces tests sont automatisés et peuvent être exécutés à chaque modification du code pour détecter rapidement les régressions.
+Les tests fonctionnels vérifient que les fonctionnalités de l'application répondent aux exigences spécifiées. Pour chaque fonctionnalité, des scénarios de test ont été définis couvrant les cas normaux, les cas limites et les cas d'erreur. Par exemple, pour la fonctionnalité d'ajout de dépense, nous testons l'ajout avec tous les champs 
+remplis correctement, l'ajout avec des données manquantes ou invalides, et le comportement en l'absence de connexion Internet.
+Les tests de performance évaluent la réactivité et la fluidité de l'application sous différentes conditions : volume important de transactions, connexion réseau lente, appareil de faibles performances. Ces tests permettent d'identifier et de corriger les goulots d'étranglement avant la mise en production.
+Les tests de sécurité visent à détecter les vulnérabilités potentielles : injection SQL, failles d'authentification, exposition de données sensibles. Nous avons notamment testé la robustesse du système d'authentification et la protection des données financières des utilisateurs.
+Les tests d'ergonomie et d'utilisabilité ont été conduits avec un panel de dix utilisateurs représentatifs de notre cible. Ces utilisateurs ont été invités à réaliser des tâches spécifiques avec l'application pendant que nous observions leur comportement. Les difficultés rencontrées ont été documentées et ont conduit à des ajustements de l'interface utilisateur.
+2.2.5 Déploiement de l'Application
+Le déploiement de l'application marque le passage de l'environnement de développement à l'environnement de production, accessible aux utilisateurs finaux. Cettephase comprend plusieurs étapes techniques et organisationnelles.
+La configuration du serveur de production constitue la première étape. Un VPS Ubuntu Server 22.04 LTS a été provisionné chez un hébergeur. La pile technologique de production (LAMP : Linux, Apache, MySQL, PHP) a été installée et configurée selon les meilleures pratiques de sécurité : désactivation des services non utilisés, mise à jour des correctifs de sécurité, configuration du pare-feu UFW, et mise en place du certificat SSL Let's Encrypt pour sécuriser les communications HTTPS.
+Le déploiement du back-end Laravel implique le transfert du code source sur le serveur, la configuration des variables d'environnement (connexion à la base de données, clé d'application, configuration email), l'exécution des migrations de base de données, et la configuration du scheduler Laravel pour les tâches planifiées (envoi de rapports hebdomadaires, nettoyage des données expirées).
+La publication de l'application mobile sur le Google Play Store a nécessité la création d'un compte développeur Google, la génération d'un fichier APK signé, la rédaction du listing (description, captures d'écran, icône), et la soumission pour validation par Google. Le processus de validation prend généralement entre 24 et 72 heures.
+Après le déploiement, un système de monitoring continu a été mis en place pour surveiller la disponibilité du serveur, les performances de l'API et les éventuelles erreurs applicatives. Des alertes automatiques ont été configurées pour notifier l'équipe technique en cas d'incident.
+CONCEPTION,
+ 
+IMPLEMENTATION ET TESTS
+Ce chapitre constitue le cœur de notre travail technique. Il présente en détail la conception architecturale de l'application, son implémentation, les fonctionnalités développées, les résultats des tests et l'analyse financière du projet.
+3.1 Conception de l'Application
+3.1.1 Choix des Méthodes
+Le choix des méthodes de conception est une étape déterminante pour la réussite d'un projet informatique. Il convient de sélectionner des approches adaptées à la nature du projet, aux compétences de l'équipe et aux outils disponibles.
+Pour la modélisation des données, nous avons opté pour la méthode MERISE. Ce choix est justifié par plusieurs raisons : la méthode MERISE est bien documentée et largement enseignée dans les établissements académiques francophones, elle offre une approche rigoureuse pour la conception de bases de données relationnelles, et elle permet de séparer clairement les aspects conceptuels (indépendants de la technologie) des aspects logiques et physiques (liés à l'implémentation).
+Pour la modélisation des comportements et des interactions, nous avons utilisé le langage UML, qui est le standard international pour la modélisation orientée objet. Les diagrammes UML nous permettent de communiquer efficacement sur l'architecture du système et de documenter les cas d'utilisation, les séquences d'interactions et la structure des classes.
+Pour le développement, nous avons adopté une approche agile inspirée de la méthode Scrum. Le développement a été organisé en sprints de deux semaines, chaque sprint aboutissant à une version fonctionnelle testable de l'application. Cette approche incrémentale nous a permis d'intégrer les retours des utilisateurs tout au long du développement et d'ajuster les priorités en fonction des besoins émergents.
+3.1.2 Identification et Analyse des Besoins
+L'identification des besoins est le résultat de la phase de collecte de données présentée au chapitre précédent. Elle se traduit par la définition des acteurs du système, des fonctionnalités attendues et des contraintes à respecter.
+Les acteurs principaux de notre système sont :
+L'Utilisateur : la personne physique qui utilise l'application pour gérer ses finances personnelles. C'est l'acteur principal, dont les besoins orientent l'ensemble du développement.
+L'Administrateur : le gestionnaire du système qui supervise le fonctionnement de l'application, gère les paramètres globaux et peut accéder aux statistiques agrégées (anonymisées) pour améliorer l'application.
+Le Système de Notification : acteur secondaire qui envoie des alertes aux utilisateurs lorsque des événements particuliers se produisent (dépassement de budget, récapitulatif hebdomadaire).
+Le diagramme des cas d'utilisation permet de visualiser les interactions entre ces acteurs et le système. Les cas d'utilisation principaux identifiés pour l'utilisateur sont : s'inscrire et se connecter, gérer son profil, saisir et catégoriser des transactions, créer et gérer des budgets, consulter des rapports et statistiques, configurer des alertes, et exporter ses données.
+Figure 7 — Diagramme des cas d'utilisation
+3.1.3 Besoins Fonctionnels
+Les besoins fonctionnels décrivent les fonctionnalités que l'application doit offrir pour répondre aux attentes des utilisateurs. Ils ont été définis à partir des résultats de l'enquête et organisés en modules fonctionnels.
+Le module Authentification et Gestion de Compte comprend les fonctionnalités d'inscription d'un nouvel utilisateur avec email et mot de passe, de connexion sécurisée, de récupération de mot de passe oublié, de modification du profil utilisateur (nom, avatar, devise), et de suppression du compte avec exportation préalable des données.
+Le module Gestion des Transactions est le cœur de l'application. Il permet la saisie rapide d'une dépense ou d'un revenu avec les informations suivantes : montant, date, catégorie, description, mode de paiement (espèces, Mobile Money, virement) et pièce justificative (photo de reçu). Il offre également la possibilité de modifier ou supprimer une transaction existante, de rechercher et filtrer les transactions selon divers critères, et de consulter l'historique complet des transactions.
+Le module Gestion des Budgets permet de créer un budget mensuel global et des budgets par catégorie de dépense, de suivre en temps réel la consommation de chaque budget, de recevoir des alertes lorsque le seuil de 80% d'un budget est atteint, et de reporter un budget non consommé sur le mois suivant.
+Le module Tableaux de Bord et Rapports offre un tableau de bord personnalisable affichant les indicateurs clés (solde du mois, total des dépenses, total des revenus), des graphiques interactifs (diagrammes circulaires pour la répartition des dépenses, histogrammes pour l'évolution mensuelle), des rapports périodiques (hebdomadaires, mensuels, annuels) et la possibilité d'exporter les données en PDF ou CSV.
+Le module Prévision et Planification propose des projections financières basées sur les tendances historiques, des recommandations personnalisées pour l'optimisation du budget, un calculateur d'épargne pour atteindre des objectifs financiers définis, et une visualisation de la trajectoire financière sur 3, 6 et 12 mois.
+3.1.4 Besoins Non Fonctionnels
+Les besoins non fonctionnels définissent les qualités que doit posséder l'application en dehors de ses fonctionnalités proprement dites. Ils concernent la performance, la sécurité, l'utilisabilité et la maintenabilité.
+En matière de performance, l'application doit répondre aux requêtes de l'utilisateur en moins de deux secondes dans des conditions réseau normales (3G/4G). Elle doit pouvoir fonctionner en mode hors ligne pour la consultation des données déjà 
+chargées et la saisie de nouvelles transactions, qui seront synchronisées dès le retour de la connexion. La base de données doit supporter jusqu'à 10 000 transactions par utilisateur sans dégradation perceptible des performances.
+En matière de sécurité, toutes les communications entre l'application mobile et le serveur doivent être chiffrées avec TLS 1.2 ou supérieur. Les mots de passe des utilisateurs doivent être stockés sous forme de hash bcrypt. L'authentification par token JWT avec expiration après 24 heures est requise. Les données sensibles (numéros de compte, informations personnelles) doivent être chiffrées dans la base de données. Des mécanismes de protection contre les attaques courantes (injection SQL, XSS, CSRF) doivent être en place.
+En matière d'utilisabilité, l'interface doit être intuitive et utilisable sans formation préalable. L'application doit être entièrement disponible en français, langue principale des utilisateurs cibles. Elle doit être compatible avec les versions Android 8.0 et supérieures, couvrant ainsi plus de 90% des appareils Android en circulation. L'interface doit être responsive et s'adapter à différentes tailles d'écran.
+En matière de maintenabilité, le code doit suivre les conventions de codage Flutter/Dart et être documenté. L'architecture MVVM adoptée doit faciliter les tests unitaires et l'ajout de nouvelles fonctionnalités. Les migrations de base de données doivent permettre des mises à jour sans perte de données.
+3.1.5 Modélisation et Diagrammes MERISE
+3.1.5.1 Modèle Conceptuel des Données (MCD)
+Le Modèle Conceptuel des Données représente les entités du système et leurs associations, en s'abstrayant des contraintes d'implémentation. Il constitue la base sur laquelle sera construite la base de données relationnelle.
+Les entités principales identifiées dans notre système sont les suivantes :
+UTILISATEUR : représente un utilisateur de l'application. Attributs : id_utilisateur, nom, prenom, email, mot_de_passe (hashé), date_inscription, devise, photo_profil, statut.
+TRANSACTION : représente une opération financière (dépense ou revenu). Attributs : id_transaction, montant, type (dépense/revenu), date_transaction, description, justificatif (URL image), mode_paiement, date_creation.
+CATEGORIE : représente une catégorie de classification des transactions. Attributs : id_categorie, nom, icone, couleur, type (dépense/revenu), est_systeme (catégorie par défaut ou personnalisée).
+BUDGET : représente un budget alloué par l'utilisateur pour une période donnée. Attributs : id_budget, montant_alloue, montant_depense, periode (mensuel/hebdomadaire/annuel), date_debut, date_fin, statut_alerte.
+ALERTE : représente une notification envoyée à l'utilisateur. Attributs : id_alerte, type_alerte, message, date_envoi, est_lue.
+OBJECTIF : représente un objectif d'épargne que l'utilisateur s'est fixé. Attributs : id_objectif, nom, montant_cible, montant_actuel, date_echeance, statut.
+Les associations entre ces entités sont les suivantes : Un UTILISATEUR peut avoir plusieurs TRANSACTIONS (relation 1,n). Un UTILISATEUR peut définir plusieurs BUDGETS (relation 1,n). Un UTILISATEUR peut recevoir plusieurs ALERTES (relation 1,n). Un UTILISATEUR peut se fixer plusieurs OBJECTIFS (relation 1,n). Une TRANSACTION appartient à une CATEGORIE (relation n,1). Un BUDGET est associé à une CATEGORIE (relation n,1).
+Figure 8 — MCD (Modèle Conceptuel des Données)
+3.1.5.2 Modèle Conceptuel des Traitements (MCT)
+Le Modèle Conceptuel des Traitements décrit les processus métier du système en termes d'événements déclencheurs, d'opérations et de résultats. Il permet de formaliser la logique métier indépendamment de l'implémentation technique.
+Le processus principal est la Gestion des Transactions. L'événement déclencheur est la saisie d'une transaction par l'utilisateur. L'opération comprend : la validation des données saisies, l'enregistrement de la transaction en base de données, la mise à jour du solde courant, la vérification des seuils budgétaires, et l'envoi d'une alerte si nécessaire. Le résultat est soit la confirmation de l'enregistrement et la mise à jour de l'affichage, soit un message d'erreur en cas de données invalides.
+Le processus de Génération des Rapports est déclenché soit par une demande explicite de l'utilisateur, soit automatiquement à intervalles réguliers (fin de semaine, fin de mois). L'opération consiste à récupérer les transactions de la période concernée, à calculer les statistiques (totaux par catégorie, évolution, comparaison avec la période précédente), et à générer le rapport dans le format demandé. Le résultat est un rapport présenté dans l'interface ou exporté en fichier.
+Le processus de Vérification Budgétaire est déclenché à chaque nouvelle transaction. L'opération consiste à comparer le montant cumulé des dépenses de la catégorie avec le budget alloué pour la période en cours. Si le seuil de 80% est atteint, une notification d'avertissement est générée. Si le budget est dépassé, une notification d'alerte est générée. Ces notifications sont enregistrées dans la table ALERTE et envoyées via le système de notifications push.
+Figure 9 — MCT (Modèle Conceptuel des Traitements)
+3.1.5.3 Modèle Logique des Données (MLD)
+Le Modèle Logique des Données traduit le MCD en un schéma relationnel adapté à l'implémentation en base de données MySQL. Chaque entité du MCD devient une table, et les associations se traduisent par des clés étrangères.
+La table utilisateurs contient les colonnes : id (BIGINT, PRIMARY KEY, AUTO_INCREMENT), nom (VARCHAR 100, NOT NULL), prenom (VARCHAR 100, NOT NULL), email (VARCHAR 255, UNIQUE, NOT NULL), password (VARCHAR 255, NOT NULL), devise (VARCHAR 10, DEFAULT 'XOF'), photo_profil (VARCHAR 255, NULLABLE), statut (ENUM 'actif' 'inactif', DEFAULT 'actif'), created_at (TIMESTAMP), updated_at (TIMESTAMP).
+La table transactions contient les colonnes : id (BIGINT, PRIMARY KEY, AUTO_INCREMENT), utilisateur_id (BIGINT, FOREIGN KEY references utilisateurs), categorie_id (BIGINT, FOREIGN KEY references categories), montant (DECIMAL 15 2, NOT NULL), type (ENUM 'depense' 'revenu', NOT NULL), 
+date_transaction (DATE, NOT NULL), description (TEXT, NULLABLE), mode_paiement (ENUM 'especes' 'mobile_money' 'virement' 'carte', DEFAULT 'especes'), justificatif (VARCHAR 255, NULLABLE), created_at (TIMESTAMP), updated_at (TIMESTAMP).
+La table categories contient les colonnes : id (BIGINT, PRIMARY KEY, AUTO_INCREMENT), utilisateur_id (BIGINT, FOREIGN KEY, NULLABLE pour les catégories système), nom (VARCHAR 100, NOT NULL), icone (VARCHAR 50), couleur (VARCHAR 7), type (ENUM 'depense' 'revenu', NOT NULL), est_systeme (BOOLEAN, DEFAULT FALSE).
+La table budgets contient les colonnes : id (BIGINT, PRIMARY KEY, AUTO_INCREMENT), utilisateur_id (BIGINT, FOREIGN KEY), categorie_id (BIGINT, FOREIGN KEY, NULLABLE pour le budget global), montant_alloue (DECIMAL 15 2, NOT NULL), montant_depense (DECIMAL 15 2, DEFAULT 0), periode (ENUM 'hebdomadaire' 'mensuel' 'annuel', DEFAULT 'mensuel'), date_debut (DATE, NOT NULL), date_fin (DATE, NOT NULL), alerte_80_envoyee (BOOLEAN, DEFAULT FALSE), alerte_100_envoyee (BOOLEAN, DEFAULT FALSE).
+Figure 10 — MLD (Modèle Logique des Données)
+3.1.5.4 Diagramme de Séquence
+Le diagramme de séquence pour le processus d'ajout d'une dépense illustre les interactions entre l'utilisateur, l'interface mobile (Flutter), l'API REST (Laravel) et la base de données MySQL.
+La séquence se déroule comme suit. L'utilisateur saisit les informations de la dépense (montant, catégorie, date, description, mode de paiement) dans le formulaire de l'application mobile. Le ViewModel Flutter valide les données côté client : vérification que le montant est positif et non nul, que la catégorie est sélectionnée, que la date est valide. Si la validation échoue, un message d'erreur est affiché à l'utilisateur. Si la validation réussit, le ViewModel envoie une requête POST à l'endpoint '/api/transactions' de l'API REST, avec le token JWT dans l'en-tête d'autorisation et les données de la transaction au format JSON. Le back-end Laravel reçoit la requête, vérifie la validité du token JWT et identifie l'utilisateur, valide les données côté serveur, insère la transaction dans la base de données MySQL, récupère le budget correspondant à la catégorie et à la période courante, met à jour le montant dépensé dans le budget, vérifie si les seuils d'alerte (80% et 100%) sont atteints, génère et envoie une notification push si nécessaire, et retourne une réponse JSON avec les données de la transaction créée. Le ViewModel Flutter reçoit la réponse, met à jour l'état de l'interface (liste des transactions, solde, graphiques) et affiche un message de confirmation à l'utilisateur.
+Figure 11 — Diagramme de séquence 
+–
+ Authentification
+Figure 12 — Diagramme de séquence - Ajout de dépense
+Figure 13 — Diagramme d'interaction d'authentification
+Figure 14 — Architecture technique de l'application
+3.1.5.5 Dictionnaire de Données
+Le dictionnaire de données fournit une description précise de chaque attribut stocké dans la base de données, incluant son nom, son type, sa taille, et sa description.
+Attribut
+Type
+Taille
+Description
+id_transaction
+BIGINT
+20
+Identifiant unique de la transaction
+montant
+DECIMAL
+15,2
+Montant de la transaction en devise locale
+type
+ENUM
+-
+Type : 'depense' ou 'revenu'
+date_transaction
+DATE
+-
+Date à laquelle la transaction a eu lieu
+description
+TEXT
+500
+Description libre de la transaction
+mode_paiement
+ENUM
+-
+Mode de paiement utilisé
+justificatif
+VARCHAR
+255
+URL de la photo du reçu (facultatif)
+utilisateur_id
+BIGINT
+20
+Référence à l'utilisateur propriétaire
+categorie_id
+BIGINT
+20
+Référence à la catégorie de la transaction
+montant_alloue
+DECIMAL
+15,2
+Montant du budget alloué pour la période
+montant_depense
+DECIMAL
+15,2
+Montant déjà dépensé sur le budget
+date_debut
+DATE
+-
+Date de début de la période budgétaire
+date_fin
+DATE
+-
+Date de fin de la période budgétaire
+est_systeme
+BOOLEAN
+-
+Indique si la catégorie est prédéfinie
+email
+VARCHAR
+255
+Adresse email de l'utilisateur (unique)
+devise
+VARCHAR
+10
+Code devise (ex: XOF, EUR, USD)
+3.2 Implémentation de l'Application
+3.2.1 Choix des Outils de Développement
+Le choix des outils et technologies de développement est une décision stratégique qui influence directement la qualité, les performances et la maintenabilité de l'application. Nos choix ont été guidés par les critères suivants : adéquation avec les besoins du projet, maturité et stabilité de la technologie, disponibilité de la documentation et de la communauté, courbe d'apprentissage, et conditions de licence.
+Technologie
+Usage
+Justification
+Flutter 3.x / Dart
+Développement mobile
+Multiplateforme, performances natives, large écosystème
+Laravel 10.x / PHP 8.2
+Back-end API REST
+Robuste, sécurisé, ORM puissant, documentation excellente
+MySQL 8.0
+Base de données
+Fiable, performant, compatible Laravel, open-source
+Firebase Cloud Messaging
+Notifications push
+Service Google fiable, gratuit pour usage modéré
+Visual Studio Code
+IDE principal
+Léger, extensible, support Flutter/Dart excellent
+Android Studio
+Tests Android
+Émulateur officiel Android, débogueur intégré
+Postman
+Test API
+Interface intuitive pour tester les endpoints REST
+Git / GitHub
+Gestion de versions
+Standard industrie, collaboration, sauvegarde du code
+Ubuntu Server 22.04
+Serveur production
+Stable, sécurisé, large support communautaire
+Apache / Nginx
+Serveur web
+Haute performance, configuration flexible
+3.2.2 Création et Démarrage du Projet
+La création du projet Flutter a été réalisée en utilisant le Flutter CLI (Command Line Interface). La commande 'flutter create financeapp' génère la structure de base du projet, comprenant les répertoires lib (code source Dart), android (configuration Android native), ios (configuration iOS native), assets (ressources statiques) et test (tests automatisés).
+La structure du projet Flutter a été organisée selon les principes de l'architecture MVVM :
+lib/models/ : contient les classes de modèles de données (Transaction, Budget, Categorie, Utilisateur)
+lib/views/ : contient les écrans et widgets de l'interface utilisateur
+lib/viewmodels/ : contient les ViewModels gérant la logique de présentation et l'état
+lib/services/ : contient les services d'accès aux données (API client, base de données locale)
+lib/utils/ : contient les fonctions utilitaires et les constantes
+lib/widgets/ : contient les widgets réutilisables (boutons, champs, cartes)
+Pour le back-end Laravel, le projet a été initialisé avec Composer, le gestionnaire de paquets PHP. La structure MVC de Laravel a été respectée, avec les répertoires app/Models, app/Http/Controllers, app/Http/Requests, database/migrations, routes/api.php pour les endpoints de l'API.
+3.2.3 Écriture et Exécution du Code
+L'écriture du code a suivi une approche test-driven pour les fonctionnalités critiques : les tests unitaires ont été écrits avant le code de production, guidant ainsi l'implémentation. Cette pratique a contribué à améliorer la qualité et la robustesse du code.
+Côté Flutter, l'implémentation du ViewModel de gestion des transactions illustre l'architecture adoptée. Le ViewModel utilise le package Provider pour la gestion de l'état, permettant aux widgets de l'interface de réagir automatiquement aux changements de données. Les appels à l'API sont gérés de manière asynchrone avec les mots-clés async/await de Dart, garantissant une interface réactive sans blocage.
+Côté Laravel, les contrôleurs de l'API suivent le principe REST : chaque ressource (Transaction, Budget, Categorie) dispose d'un contrôleur dédié implémentant les 
+méthodes index (liste), store (création), show (lecture), update (mise à jour) et destroy (suppression). Les FormRequest de Laravel sont utilisés pour la validation des données entrantes, séparant clairement la logique de validation de la logique métier.
+La sécurisation de l'API est assurée par le package Laravel Sanctum, qui gère l'authentification par tokens. Chaque requête à l'API doit inclure un token Bearer valide dans l'en-tête Authorization. Les tokens sont révocables et peuvent être configurés pour expirer après une durée définie.
+3.2.4 Gestion des Droits d'Accès
+La gestion des droits d'accès est implémentée à deux niveaux : l'authentification (qui êtes-vous ?) et l'autorisation (que pouvez-vous faire ?).
+L'authentification est basée sur le système de tokens JWT fourni par Laravel Sanctum. Lors de la connexion, l'utilisateur soumet ses identifiants (email et mot de passe). Le serveur vérifie les identifiants et, s'ils sont corrects, génère un token d'accès qui est retourné à l'application mobile. Ce token est stocké de manière sécurisée dans le Flutter Secure Storage de l'appareil et inclus dans chaque requête ultérieure.
+L'autorisation garantit que chaque utilisateur ne peut accéder qu'à ses propres données. Dans chaque contrôleur Laravel, avant d'effectuer une opération sur une ressource (transaction, budget, etc.), le système vérifie que la ressource demandée appartient bien à l'utilisateur authentifié. Cette vérification est implémentée via les Policies Laravel, qui centralisent la logique d'autorisation.
+Pour l'administrateur, une interface web distincte est accessible via un sous-domaine sécurisé. L'administrateur peut consulter des statistiques globales anonymisées, gérer les catégories système, et traiter les signalements d'incidents. La séparation des rôles est assurée par le système de guards et de rôles de Laravel.
+3.3 Présentation de l'Application
+Cette section présente les principales interfaces de l'application développée, en décrivant leur contenu, leurs fonctionnalités et les choix de design qui ont été faits.
+3.3.1 Page de Démarrage de l'Application
+La page de démarrage est la première écran que voit l'utilisateur lors du lancement de l'application. Elle affiche le logo et le nom de l'application 'FinanceApp' dans un design épuré avec un fond en dégradé bleu. Pendant le chargement, l'application vérifie si un token d'authentification valide est stocké sur l'appareil : si c'est le cas, l'utilisateur est directement redirigé vers le tableau de bord ; sinon, il est redirigé vers l'écran de connexion.
+Un écran d'onboarding composé de trois slides présente les fonctionnalités principales de l'application aux nouveaux utilisateurs : 'Suivez vos dépenses en temps réel', 'Planifiez votre budget facilement' et 'Visualisez vos finances en un coup d'œil'. Chaque slide est illustrée d'une animation Lottie colorée et d'un texte descriptif concis. L'utilisateur peut passer les slides ou les naviguer une par une.
+3.3.2 Page d'Authentification
+La page d'authentification propose deux onglets : Connexion et Inscription. Sur l'onglet Connexion, l'utilisateur saisit son adresse email et son mot de passe. Un bouton 'Mot de passe oublié ?' permet d'initier la procédure de réinitialisation. Une case à cocher 'Rester connecté' permet de maintenir la session active au-delà de la fermeture de l'application.
+Sur l'onglet Inscription, le formulaire collecte les informations nécessaires à la création du compte : prénom, nom, adresse email (vérifiée pour sa validité), mot de passe et confirmation du mot de passe. Un indicateur de force du mot de passe guide l'utilisateur vers le choix d'un mot de passe robuste. Après soumission, un email de vérification est envoyé à l'adresse fournie.
+La validation des formulaires est effectuée en temps réel : les erreurs sont affichées sous chaque champ dès que l'utilisateur quitte le champ (validation on blur). Cette approche améliore l'expérience utilisateur en fournissant un retour immédiat plutôt que d'attendre la soumission du formulaire.
+3.3.3 Page de Consultation et Saisie des Dépenses
+Le tableau de bord est l'écran principal de l'application. Il présente une vue synthétique de la situation financière de l'utilisateur pour le mois courant. En haut de l'écran, trois cartes affichent respectivement le solde net du mois (revenus moins dépenses), le total des dépenses et le total des revenus.
+Au centre, un graphique en anneau montre la répartition des dépenses par catégorie pour le mois en cours. Chaque portion de l'anneau représente une catégorie et affiche le pourcentage correspondant. Un appui sur une portion ouvre une vue détaillée des transactions de cette catégorie.
+En bas de l'écran, la liste des dernières transactions est affichée avec pour chaque transaction : l'icône et la couleur de sa catégorie, la description, la date et le montant (en rouge pour les dépenses, en vert pour les revenus). Un bouton flottant '+' permet d'ajouter rapidement une nouvelle transaction.
+Le formulaire de saisie d'une transaction s'ouvre dans une feuille modale (bottom sheet) pour ne pas interrompre la navigation. Il comprend un champ montant avec clavier numérique adapté, un sélecteur de type (dépense/revenu), un sélecteur de catégorie illustré d'icônes colorées, un sélecteur de date, un sélecteur de mode de paiement, un champ de description libre et un bouton pour ajouter une photo de reçu.
+3.3.4 Page de Planification et Budgétisation
+La page de budgétisation permet à l'utilisateur de définir et de suivre ses budgets. Elle affiche d'abord le budget global du mois (si défini) avec une barre de progression indiquant le taux de consommation. En dessous, la liste des budgets par catégorie est présentée, chacun avec sa barre de progression colorée : verte si moins de 60% consommé, orange entre 60% et 90%, rouge au-delà de 90%.
+Pour créer un nouveau budget, l'utilisateur appuie sur le bouton '+' et renseigne la catégorie concernée, le montant alloué et la période (mensuelle par défaut). L'application affiche automatiquement le montant déjà dépensé dans cette catégorie pour la période en cours, permettant à l'utilisateur de définir un budget réaliste.
+Une vue calendrier permet de visualiser les dépenses prévues et les échéances importantes (loyer, abonnements récurrents) sur le mois. Cette fonctionnalité aide l'utilisateur à anticiper ses dépenses futures et à ajuster son budget en conséquence.
+3.3.5 Page de Suivi et Visualisation des Transactions
+La page de rapports offre une vision approfondie de l'évolution des finances de l'utilisateur. Un sélecteur de période (semaine, mois, trimestre, année) permet d'ajuster la fenêtre temporelle de l'analyse. Les graphiques disponibles incluent un histogramme de l'évolution mensuelle des revenus et des dépenses sur les 12 derniers mois, une courbe de tendance du solde cumulé, et un diagramme circulaire de la répartition des dépenses par catégorie.
+Une fonctionnalité de comparaison permet de mettre en regard deux périodes : par exemple, les dépenses de ce mois-ci versus le mois précédent, ou ce trimestre versus le même trimestre de l'année précédente. Les variations sont mises en évidence avec des indicateurs directionnels (flèches) et des pourcentages d'évolution.
+Le module de prévision utilise les données historiques de l'utilisateur pour projeter ses dépenses sur les prochains mois. Un algorithme simple de moyenne mobile est appliqué pour lisser les variations et produire une prévision raisonnable. L'utilisateur peut visualiser l'écart entre son budget prévisionnel et la réalité.
+3.3.6 Page de Paramétrage du Profil Utilisateur
+La page de paramètres donne accès à toutes les options de personnalisation de l'application. Elle est organisée en plusieurs sections : Profil (photo, nom, email, devise), Notifications (activation/désactivation des différents types d'alertes, seuils de déclenchement), Apparence (thème clair/sombre, couleurs d'accentuation), Données (export des données, sauvegarde manuelle, suppression du compte) et À propos (version de l'application, politique de confidentialité, mentions légales).
+La gestion des catégories personnalisées est accessible depuis la page paramètres. L'utilisateur peut créer de nouvelles catégories (avec un nom, une icône choisie dans une bibliothèque de 50 icônes, et une couleur), modifier les catégories existantes et archiver les catégories inutilisées. Les catégories système prédéfinies (Alimentation, Transport, Logement, Loisirs, Santé, Éducation, etc.) ne peuvent pas être supprimées mais peuvent être personnalisées.
+3.4 Opérations avec l'Application
+3.4.1 Création d'un Compte Utilisateur et Connexion
+La procédure de création d'un compte se déroule en quatre étapes. Dans la première étape, l'utilisateur remplit le formulaire d'inscription avec ses informations personnelles. Dans la deuxième étape, le système vérifie que l'email n'est pas déjà utilisé et que le mot de passe respecte les critères de complexité (au moins 8 caractères, une majuscule, un chiffre). Dans la troisième étape, un email de vérification est envoyé à l'adresse fournie. Dans la quatrième étape, l'utilisateur clique sur le lien de vérification, son compte est activé et il est redirigé vers l'application.
+Lors de la première connexion, l'application guide l'utilisateur à travers une configuration initiale : choix de la devise, paramétrage des catégories de dépenses prioritaires, et définition optionnelle du budget mensuel global. Cette personnalisation initiale est présentée comme optionnelle mais recommandée pour tirer le meilleur parti de l'application.
+3.4.2 Planification de Dépense
+La planification des dépenses s'appuie sur deux fonctionnalités complémentaires. La première est la définition de budgets prévisionnels, qui permet à l'utilisateur d'allouer des enveloppes budgétaires à différentes catégories de dépenses pour le mois à venir. La deuxième est la saisie de dépenses récurrentes, qui permet de programmer des dépenses régulières (loyer mensuel, abonnements) qui seront automatiquement prises en compte dans le budget sans nécessiter une saisie manuelle à chaque occurrence.
+Le module de planification affiche également une projection du solde de fin de mois, calculée en soustrayant les dépenses prévues (récurrentes et budgétées) des revenus attendus. Cette projection aide l'utilisateur à anticiper les situations de trésorerie difficile et à ajuster ses dépenses en conséquence.
+3.4.3 Budgétisation
+La fonctionnalité de budgétisation permet à l'utilisateur de définir des plafonds de dépenses par catégorie et par période. Elle repose sur le principe des enveloppes budgétaires, une méthode éprouvée de gestion financière qui consiste à allouer un montant fixe à chaque poste de dépense.
+L'application surveille en temps réel la consommation de chaque budget et envoie des notifications dès que l'utilisateur approche ou dépasse un seuil. Deux types 
+d'alertes sont disponibles : une alerte d'avertissement à 80% de consommation ('Attention : vous avez dépensé 80% de votre budget Alimentation ce mois-ci') et une alerte de dépassement à 100% ('Vous avez dépassé votre budget Alimentation de 15 000 XOF ce mois-ci').
+Un tableau de bord de synthèse budgétaire présente l'ensemble des budgets du mois avec leur taux de consommation, le montant restant disponible et le nombre de jours restants dans la période. Ces informations permettent à l'utilisateur d'évaluer rapidement si son rythme de dépenses actuel est soutenable jusqu'à la fin du mois.
+3.5 Tests de Validation
+La phase de tests de validation vise à s'assurer que l'application répond aux exigences fonctionnelles et non fonctionnelles définies lors de la phase d'analyse. Nous présentons ici les résultats des principaux tests réalisés.
+3.5.1 Tests Fonctionnels
+Les tests fonctionnels vérifient que chaque fonctionnalité de l'application fonctionne correctement selon les spécifications. Nous avons utilisé une approche de test boîte noire, en nous concentrant sur les comportements observables plutôt que sur l'implémentation interne.
+Fonctionnalité testée
+Scénario
+Résultat attendu
+Résultat obtenu
+Statut
+Inscription
+Saisie de données valides
+Compte créé, email envoyé
+Compte créé, email envoyé
+PASS
+Inscription
+Email déjà utilisé
+Message d'erreur
+Message d'erreur affiché
+PASS
+Connexion
+Identifiants corrects
+Accès au tableau de bord
+Accès accordé
+PASS
+Connexion
+Mot de passe incorrect
+Message d'erreur
+Message d'erreur affiché
+PASS
+Ajout transaction
+Données complètes valides
+Transaction enregistrée
+Transaction enregistrée
+PASS
+Ajout transaction
+Montant négatif
+Refus et message d'erreur
+Refus et message affiché
+PASS
+Budget
+Dépassement de 80%
+Notification envoyée
+Notification reçue
+PASS
+Export PDF
+Rapport mensuel
+Fichier PDF généré
+Fichier PDF généré
+PASS
+Mode hors ligne
+Sans connexion
+Consultation données locales
+Données disponibles
+PASS
+Synchronisation
+Retour connexion
+Données synchronisées
+Synchronisation effectuée
+PASS
+3.5.2 Tests de Performance
+Les tests de performance évaluent la réactivité et la fluidité de l'application sous différentes conditions de charge et de connectivité. Nous avons utilisé les outils de profiling intégrés à Flutter DevTools et au panneau de développement de Laravel.
+Scénario de test
+Condition
+Résultat mesuré
+Objectif
+Statut
+Chargement liste transactions
+100 transactions, 4G
+0,8 secondes
+< 2 secondes
+PASS
+Chargement liste transactions
+1000 transactions, 4G
+1,6 secondes
+< 2 secondes
+PASS
+Chargement liste transactions
+100 transactions, 3G lente
+2,3 secondes
+< 3 secondes
+PASS
+Génération rapport mensuel
+500 transactions
+1,2 secondes
+< 3 secondes
+PASS
+Synchronisation offline
+50 transactions en attente
+3,5 secondes
+< 5 secondes
+PASS
+Affichage graphiques
+12 mois de données
+0,6 secondes
+< 1 seconde
+PASS
+Charge API concurrent
+50 utilisateurs simultanés
+Temps réponse moyen 1,8s
+< 3 secondes
+PASS
+3.5.3 Tests de Sécurité
+Les tests de sécurité visent à identifier et corriger les vulnérabilités potentielles de l'application avant sa mise en production. 
+Nous avons suivi les recommandations de l'OWASP (Open Web Application Security Project) Mobile Security Testing Guide.
+Injection SQL : Tous les accès à la base de données passent par l'ORM Eloquent de Laravel, qui prépare et paramètre automatiquement les requêtes SQL. Les tests d'injection ont confirmé que toutes les tentatives d'injection sont neutralisées. 
+Statut : PASS
+Authentification par force brute : Un mécanisme de limitation de tentatives (rate limiting) a été implémenté : après 5 tentatives échouées, le compte est temporairement bloqué pendant 15 minutes. 
+Statut : PASS
+Protection des tokens : Les tokens JWT sont stockés dans le Flutter Secure Storage, qui utilise le Keychain iOS et le Android Keystore pour un stockage sécurisé. 
+Statut : PASS
+Communication chiffrée : Toutes les communications entre l'application mobile et le serveur utilisent HTTPS avec un certificat SSL valide. 
+Statut : PASS
+Exposition des données : Les endpoints de l'API vérifient systématiquement que l'utilisateur authentifié est bien propriétaire des ressources demandées. 
+Statut : PASS
+Validation des entrées : Toutes les données reçues par l'API sont validées côté serveur avec les FormRequest Laravel. 
+Statut : PASS
+3.5.4 Tests d'Ergonomie
+Les tests d'ergonomie et d'utilisabilité ont été conduits avec un panel de dix utilisateurs représentatifs (5 hommes et 5 femmes, âgés de 22 à 45 ans, ayant différents niveaux de maîtrise des smartphones). Chaque participant a été invité à réaliser une série de tâches standardisées pendant que l'observateur notait les difficultés rencontrées.
+Les tâches testées comprenaient : créer un compte et configurer son profil, enregistrer trois transactions différentes, créer un budget mensuel pour la catégorie Alimentation, consulter le rapport du mois courant, et exporter ses données en PDF.
+Les résultats montrent un taux de réussite moyen de 89% sur l'ensemble des tâches. Les principales difficultés rencontrées concernaient la découverte de la fonctionnalité d'import de photo de reçu (4 participants sur 10) et la configuration des alertes (3 participants sur 10). Ces observations ont conduit à des améliorations de l'interface : ajout d'infobulles d'aide et mise en évidence des fonctionnalités avancées dans l'onboarding.
+Le score de satisfaction globale mesuré par l'échelle System Usability Scale (SUS) s'établit à 78,5 sur 100, ce qui correspond à un niveau d'utilisabilité 'bon' selon les benchmarks de l'industrie.
+3.5.5 Tests de Compatibilité
+Les tests de compatibilité vérifient que l'application fonctionne correctement sur différents appareils et versions du système d'exploitation. Nous avons testé l'application sur une sélection d'appareils représentatifs du parc mobile ouest-africain :
+Samsung Galaxy A21s (Android 11, écran 6,5 pouces) : fonctionnement correct
+Tecno Camon 18 (Android 11, écran 6,8 pouces) : fonctionnement correct
+Itel A58 (Android 10 Go Edition, 2Go RAM) : quelques lenteurs sur les graphiques animés, corrigées par l'optimisation du rendu
+Infinix Hot 11 (Android 11, écran 6,6 pouces) : fonctionnement correct
+Xiaomi Redmi 9C (Android 10, 2Go RAM) : fonctionnement correct
+L'application a été testée sur les versions Android 8.0, 9, 10, 11 et 12. Elle fonctionne correctement sur toutes ces versions, couvrant ainsi environ 95% du parc Android en circulation en Afrique de l'Ouest.
+3.6 Étude Financière de l'Application
+3.6.1 Coût de Développement
+Le coût de développement comprend les charges liées aux ressources humaines (développeurs, designer, chef de projet) et les charges matérielles et logicielles nécessaires au développement.
+Poste de coût
+Quantité
+Coût unitaire (FCFA)
+Coût total (FCFA)
+Développeur mobile Flutter (4 mois)
+1
+250 000/mois
+1 000 000
+Développeur back-end Laravel (3 mois)
+1
+200 000/mois
+600 000
+Designer UI/UX (1 mois)
+1
+150 000/mois
+150 000
+Compte développeur Google Play
+1
+8 000
+8 000
+Ordinateur de développement
+1
+350 000
+350 000
+Logiciels et licences
+1
+50 000
+50 000
+TOTAL DÉVELOPPEMENT
+2 158 000
+3.6.2 Coût d'Hébergement et de Maintenance
+Poste de coût
+Fréquence
+Coût mensuel (FCFA)
+Coût annuel (FCFA)
+VPS (2 vCPU, 4Go RAM, 80Go SSD)
+Mensuel
+15 000
+180 000
+Nom de domaine
+Annuel
+833
+10 000
+Certificat SSL (Let's Encrypt)
+Gratuit
+0
+0
+Sauvegarde externe (cloud)
+Mensuel
+5 000
+60 000
+Firebase Cloud Messaging
+Gratuit (< 10 000 notif/j)
+0
+0
+Maintenance et mises à jour
+Mensuel
+50 000
+600 000
+Support et assistance
+Mensuel
+30 000
+360 000
+TOTAL ANNUEL
+1 210 000
+3.6.3 Estimation du Retour sur Investissement (ROI)
+Le modèle économique envisagé pour l'application repose sur une stratégie freemium : une version gratuite offrant les fonctionnalités de base (suivi des dépenses, 3 budgets, rapports mensuels), et une version Premium payante à 1 500 FCFA/mois ou 15 000 FCFA/an offrant des fonctionnalités avancées (budgets illimités, prévisions financières, export PDF, mode multi-compte).
+Sur la base d'une projection conservatrice de 5 000 utilisateurs actifs dans la première année, dont 10% convertis en abonnés Premium (500 abonnés), le chiffre d'affaires mensuel attendu serait de 750 000 FCFA (500 × 1 500 FCFA). Le point d'équilibre (break-even) serait atteint après environ 4 mois d'exploitation commerciale.
+Indicateur
+Année 1
+Année 2
+Année 3
+Utilisateurs actifs
+5 000
+15 000
+35 000
+Taux de conversion Premium (%)
+10%
+12%
+15%
+Abonnés Premium
+500
+1 800
+5 250
+Revenus annuels (FCFA)
+9 000 000
+27 000 000
+78 750 000
+Charges annuelles (FCFA)
+3 368 000
+4 000 000
+6 000 000
+Résultat net (FCFA)
+5 632 000
+23 000 000
+72 750 000
+ROI
++166%
++475%
++1 113%
+3.7 Synthèse des Résultats et Discussion
+3.7.1 Synthèse des Résultats
+Le présent travail avait pour objectif de concevoir et réaliser une application mobile de planification de dépense adaptée au contexte socio-économique ouest-africain. Au terme de ce projet, nous pouvons dresser le bilan suivant des résultats obtenus.
+Sur le plan fonctionnel, l'application développée répond à l'ensemble des besoins fonctionnels identifiés lors de la phase d'analyse. Elle offre une interface intuitive pour la saisie et le suivi des transactions, un système de budgétisation complet avec alertes en temps réel, des tableaux de bord interactifs permettant une visualisation claire de la situation financière, des outils de prévision basés sur les données historiques, et des fonctionnalités d'export pour archiver et partager les données financières.
+Sur le plan technique, l'architecture MVVM adoptée a démontré son adéquation avec les contraintes du développement Flutter. La séparation claire des responsabilités entre les couches View, ViewModel et Model facilite la maintenance et l'évolution de l'application. L'API REST Laravel offre des performances satisfaisantes avec des temps de réponse conformes aux objectifs fixés.
+Sur le plan de la sécurité, les tests conduits n'ont révélé aucune vulnérabilité critique. La protection des données personnelles et financières des utilisateurs est assurée par le chiffrement des communications, le stockage sécurisé des tokens d'authentification et les mécanismes de contrôle d'accès.
+Sur le plan de l'utilisabilité, le score SUS de 78,5 confirme que l'application offre un niveau d'utilisabilité 'bon', accessible à un large public sans formation préalable. Le taux de réussite de 89% sur les tâches testées valide l'adéquation de l'interface aux besoins et aux habitudes des utilisateurs cibles.
+Concernant les hypothèses de recherche formulées en début d'étude, les résultats des tests d'utilisabilité et les retours des utilisateurs pilotes tendent à confirmer les deux premières hypothèses : l'application améliore la visibilité sur les dépenses et les alertes budgétaires suscitent un engagement accru. La validation de la troisième hypothèse nécessiterait un suivi longitudinal sur plusieurs mois, au-delà du cadre de ce mémoire.
+3.7.2 Discussion
+Les résultats obtenus doivent être mis en perspective avec les limites de notre étude, identifiées au chapitre 2. La courte durée de la phase de validation ne permet pas d'évaluer les effets à long terme de l'application sur les comportements financiers des utilisateurs. Une étude longitudinale comparative (groupe expérimental vs groupe de contrôle) serait nécessaire pour mesurer rigoureusement l'impact de l'application sur la discipline budgétaire.
+La comparaison avec les travaux antérieurs permet de situer notre contribution. Par rapport au travail de MBALLO (2019), notre application offre des fonctionnalités significativement enrichies : prévision financière, budgétisation avancée, mode hors ligne et compatibilité multiplateforme. Par rapport aux applications commerciales internationales, notre solution se distingue par son adaptation au contexte local (devise XOF, modes de paiement locaux, interface simplifiée) et son modèle économique accessible.
+Plusieurs pistes d'amélioration ont été identifiées lors des tests. L'intégration directe avec les services de Mobile Money (Orange Money, MTN Mobile Money, Flooz) permettrait une saisie automatique des transactions sans intervention manuelle de l'utilisateur. Une fonctionnalité de reconnaissance automatique des reçus par OCR (reconnaissance optique de caractères) faciliterait la saisie des dépenses en commerce physique. L'ajout d'un module d'éducation financière, proposant des conseils personnalisés basés sur les habitudes de l'utilisateur, apporterait une valeur ajoutée significative et se démarquerait des solutions existantes.
+Sur le plan commercial, le modèle freemium proposé semble adapté au marché cible. Cependant, une attention particulière devra être portée à la stratégie d'acquisition des utilisateurs, qui représente le principal défi pour atteindre la masse critique nécessaire à la viabilité économique du projet. Des partenariats avec des 
+institutions financières locales (banques, institutions de microfinance) pourraient constituer un levier d'acquisition efficace.
+CONCLUSION ET RECOMMANDATIONS
+Au terme de ce travail de recherche et de développement, nous avons réalisé une application mobile de planification de dépense adaptée au contexte socio-économique de l'Afrique de l'Ouest. Ce projet nous a permis de traverser l'ensemble du cycle de développement logiciel, depuis l'analyse des besoins jusqu'au déploiement en production, en passant par la conception architecturale, l'implémentation et les tests de validation.
+Notre point de départ était le constat d'un vide sur le marché des outils numériques de gestion financière personnelle adaptés aux réalités africaines. La majorité de la population de la région continue de gérer ses finances de manière informelle, faute d'outils accessibles, intuitifs et culturellement pertinents. Les applications existantes, principalement conçues pour des marchés occidentaux, ne prennent pas en compte les spécificités locales : utilisation du Mobile Money, transactions majoritairement en espèces, diversité des profils socio-économiques et contraintes de connectivité.
+Pour répondre à cette problématique, nous avons conçu et développé une application mobile Flutter/Laravel offrant un ensemble complet de fonctionnalités de gestion financière : suivi des transactions en temps réel, budgétisation par catégorie, alertes de dépassement, tableaux de bord interactifs et prévisions financières. L'architecture MVVM adoptée garantit la maintenabilité et l'évolutivité de la solution. Les tests de validation ont confirmé la fiabilité, la performance, la sécurité et l'utilisabilité de l'application.
+Les résultats de notre étude confirment la pertinence de notre approche et valident nos hypothèses de départ. L'application développée constitue une réponse viable aux besoins identifiés et présente un potentiel commercial réel sur le marché ouest-africain. L'analyse financière montre une rentabilité attendue dès la première année d'exploitation commerciale.
+En guise de recommandations, nous suggérons les pistes suivantes pour les travaux futurs. Premièrement, il serait pertinent de conduire une étude longitudinale pour mesurer l'impact réel de l'application sur les comportements financiers des utilisateurs sur une période de 6 à 12 mois. Deuxièmement, le développement d'une version iOS de l'application (facilité par l'utilisation de Flutter) permettrait d'élargir la base d'utilisateurs potentiels. Troisièmement, l'intégration avec les services de Mobile Money constitue la prochaine fonctionnalité prioritaire, susceptible de transformer l'expérience utilisateur en permettant une saisie automatique des transactions. Quatrièmement, un partenariat avec des institutions de microfinance ou des banques locales permettrait d'accélérer l'adoption de l'application et d'intégrer des fonctionnalités d'épargne et de crédit. Cinquièmement, l'adaptation de l'application aux contextes linguistiques locaux (version anglophone pour le Ghana et le Nigeria, versions en langues nationales) élargirait considérablement l'audience potentielle.
+Ce projet nous a également permis de développer des compétences transversales précieuses : gestion de projet, travail en équipe, communication technique et non technique, adaptation aux contraintes et capacité à trouver des compromis entre l'idéal et le réalisable. Ces compétences seront des atouts précieux dans notre future carrière professionnelle.
+En définitive, ce mémoire démontre que le développement d'outils numériques adaptés aux réalités africaines est non seulement techniquement réalisable mais aussi économiquement viable. Il illustre comment l'innovation technologique peut contribuer à l'amélioration des conditions de vie des populations en renforçant leur autonomie financière et leur capacité à planifier leur avenir.
+RÉFÉRENCES BIBLIOGRAPHIQUES
+Ouvrages 
+[1] BASS, Len ; CLEMENTS, Paul ; KAZMAN, Rick. (2012). 
+Software Architecture in Practice
+. 3e édition. Addison-Wesley. Boston. 640 pages.
+[2] HASSAN, Samir, et al. (2020). 
+Firebase for Mobile and Web Development
+. Packt Publishing. Birmingham. 494 pages.
+[3] PRESSMAN, Roger S. (2020). 
+Software Engineering: A Practitioner's Approach
+. 9e édition. McGraw-Hill Education. New York. 976 pages.
+[4] SOMMERVILLE, Ian. (2019). 
+Software Engineering
+. 10e édition. Pearson. Harlow. 816 pages.
+Mémoires et Thèses
+[5] AMEY, Kossi Bollanigni. (2024). 
+Guide de Rédaction et de soutenance de mémoire : Référentiel de l'institut FORMATEC
+. PUBLIC/005/2024. Lomé. 45 pages.
+[6] DJIRAIBE, Salkoutou Rodrigue. (2022). 
+Conception et Réalisation d'une Application web de gestion des inscriptions
+. Mémoire de fin d'étude, Licence Professionnelle, Développement d'Application. Institut FORMATEC. PUBLIC/MEM/LP-409/2023. Lomé. 87 pages.
+[7] HIDER, Makram. (2018). 
+Conception et réalisation d'une application web pour la gestion des concours
+. Mémoire de Master Professionnel. Université de Gabès. Tunis. 78 pages.
+[8] MBALLO, Abdoul. (2019). 
+Conception et réalisation d'une application de gestion financière personnelle : cas du Sénégal
+. 
+Mémoire de Master MIAGE. Université de Dakar. 102 pages.
+[9] PATY, Daniel Komi. (2023). 
+Conception et réalisation d'une application mobile de gestion d'alertes dans les services au Togo avec sauvegarde sur serveur
+. Mémoire de fin d'étude, Licence Professionnelle, Maintenance Informatique et Réseaux. 
+Institut FORMATEC. Lomé. 94 pages.
+Articles Scientifiques
+[10] MAKALEW, Brilly Andro. 
+(2022). Android Based Personal Finance Management Application: Design and Development. 
+Engineering, Mathematics 
+and Computer Science Journal (EMACS)
+. Bina Nusantara University. 
+Jakarta. Vol. 4, No. 2, pp. 89-96.
+[11] OUCHAREF, Sofiane ; OUIKENE, Mohamed. (2016). 
+Conception et réalisation d'une application Web pour la gestion des archives : Cas de l'Entreprise d'Electro-Industrie Azazga
+. 
+Mémoire de Licence Professionnelle. Université Algérienne. Alger. 65 pages.
+Ressources Électroniques et Documentation
+[12] Banque Mondiale. 
+(2022). 
+Global Findex Database 2021: Financial Inclusion, Digital Payments, and Resilience in the Age of COVID-19
+. 
+Washington DC. Disponible sur : 
+https://www.worldbank.org/en/publication/globalfindex
+ [Consulté le 5 janvier 2025].
+[13] Flutter Team. (2024). 
+Flutter Documentation
+. Google. Disponible sur : 
+https://docs.flutter.dev
+ [Consulté le 10 décembre 2024].
+[14] GSMA Intelligence. (2023). 
+State of Mobile Internet Connectivity Report 2023
+. 
+GSMA. Disponible sur : 
+https://www.gsma.com/r/somic/
+ [Consulté le 15 janvier 2025].
+[15] Laravel Team. (2024). 
+Laravel Documentation v10.x
+. Disponible sur : 
+https://laravel.com/docs
+ [Consulté le 12 décembre 2024].
+[16] OWASP Foundation. (2024). 
+OWASP Mobile Security Testing Guide
+. 
+Disponible sur : 
+https://owasp.org/www-project-mobile-security-testing-guide/
+ [Consulté le 20 janvier
+ANNEXES
+Annexe 1 : Questionnaire de Collecte de Données
+Ce questionnaire a été administré à 120 personnes dans le cadre de notre étude sur les besoins en matière de gestion financière personnelle.
+Cher(e) participant(e),
+Dans le cadre de la réalisation de notre mémoire de Licence Professionnelle à FORMATEC, nous menons une enquête sur les habitudes de gestion financière personnelle. Vos réponses nous aideront à concevoir une application mobile adaptée à vos besoins. Ce questionnaire est anonyme et les données collectées seront utilisées uniquement à des fins académiques.
+SECTION A : INFORMATIONS GÉNÉRALES
+1. Quel est votre genre ?
+Masculin
+Féminin
+2. Quelle est votre tranche d'âge ?
+18-25 ans
+26-35 ans
+36-45 ans
+Plus de 45 ans
+3. Quelle est votre situation professionnelle ?
+Étudiant(e)
+Salarié(e) du secteur formel
+Travailleur indépendant / entrepreneur
+Autre : ___________
+SECTION B : GESTION FINANCIÈRE ACTUELLE
+4. Comment suivez-vous actuellement vos dépenses ? 
+(Plusieurs réponses possibles)
+Je ne suis pas mes dépenses
+Notes manuscrites
+Tableau Excel ou Google Sheets
+Application mobile
+Relevé de compte bancaire
+Autre : ___________
+5. Définissez-vous un budget mensuel ?
+Oui, toujours
+Parfois
+Rarement
+Non, jamais
+6. Avez-vous déjà été à court d'argent avant la fin du mois ?
+Souvent (plusieurs fois par mois)
+Parfois (une fois par mois)
+Rarement
+Jamais
+SECTION C : UTILISATION DU SMARTPHONE
+7. Quel type de smartphone utilisez-vous ?
+Android
+iPhone (iOS)
+Autre
+8. Combien d'heures par jour utilisez-vous votre smartphone ?
+Moins d'une heure
+Entre 1 et 3 heures
+Plus de 3 heures
+SECTION D : ATTENTES VIS-À-VIS D'UNE APPLICATION DE GESTION FINANCIÈRE
+9. Seriez-vous intéressé(e) par une application mobile de gestion de vos finances ?
+Oui, certainement
+Oui, probablement
+Peut-être
+Non
+10. Quelles fonctionnalités vous sembleraient les plus utiles ? 
+(Classez de 1 à 5)
+Suivi des dépenses en temps réel
+Planification de budget mensuel
+Alertes de dépassement de budget
+Graphiques et statistiques
+Prévisions financières
+11. Combien seriez-vous prêt(e) à payer par mois pour une version avancée ?
+Rien (gratuit uniquement)
+500 – 1 000 FCFA
+1 000 – 2 000 FCFA
+Plus de 2 000 FCFA
+12. Avez-vous des remarques ou suggestions supplémentaires ?
+_______________________________________________________________________________
+_______________________________________________________________________________
+Merci pour votre participation !
+Annexe 2 : Guide d'Entretien Qualitatif
+Ce guide a été utilisé pour conduire les entretiens semi-directifs avec les experts et utilisateurs avancés.
+Introduction : Présentation du projet, objectifs de l'entretien, demande d'autorisation d'enregistrement, garantie de confidentialité.
+Thème 1 : Expérience personnelle en gestion financière
+Comment décririez-vous vos habitudes actuelles de gestion financière ?
+Quels outils ou méthodes avez-vous utilisés dans le passé ou utilisez-vous actuellement ?
+Quelles sont les principales difficultés que vous rencontrez dans la gestion de vos finances ?
+Thème 2 : Expérience avec les applications existantes
+Avez-vous déjà utilisé une application de gestion financière ? 
+Si oui, laquelle ?
+Qu'est-ce qui vous a plu dans cette application ? Qu'est-ce qui vous a déplu ?
+Pourquoi l'avez-vous abandonnée (si c'est le cas) ?
+Thème 3 : Besoins et attentes
+Si vous deviez concevoir l'application idéale de gestion financière, quelles fonctionnalités incluriez-vous ?
+Quels aspects de la sécurité et de la confidentialité vous semblent les plus importants ?
+Dans quelle mesure la langue d'interface et l'adaptation culturelle vous semblent-elles importantes ?
+Thème 4 : Adoption et obstacles
+Quels freins pourraient empêcher les gens de votre entourage d'adopter une telle application ?
+Quels facteurs faciliteraient l'adoption ?
+Quel prix vous semblerait raisonnable pour une version premium ?
+Conclusion : Y a-t-il des aspects que nous n'avons pas abordés et que vous souhaiteriez soulever ? Remerciements.
+Annexe 3 : Extrait du Code Source
+Ci-dessous un extrait représentatif du code de l'application illustrant la structure du ViewModel de gestion des transactions en Flutter/Dart.
+// TransactionViewModel.dart import 'package:flutter/foundation.dart'; import '../models/transaction.dart'; import '../services/api_service.dart'; import '../services/local_database_service.dart';  class TransactionViewModel extends ChangeNotifier {   List<Transaction> _transactions = [];   bool _isLoading = false;   String? _errorMessage;    List<Transaction> get transactions => _transactions;   bool get isLoading => _isLoading;   String? get errorMessage => _errorMessage;    double get totalDepenses => _transactions       .where((t) => t.type == 'depense')       .fold(0, (sum, t) => sum + t.montant);    double get totalRevenus => _transactions       .where((t) => t.type == 'revenu')       .fold(0, (sum, t) => sum + t.montant);    double get solde => totalRevenus - totalDepenses;    Future<void> fetchTransactions(String periode) async {     _isLoading = true;     
+notifyListeners();          try {       _transactions = await ApiService.getTransactions(periode);       await LocalDatabaseService.cacheTransactions(_transactions);     } catch (e) {       _transactions = await LocalDatabaseService.getCachedTransactions();       _errorMessage = 'Mode hors ligne : données locales chargées';     } finally {       _isLoading = false;       notifyListeners();     }   }    Future<bool> addTransaction(Transaction transaction) async {     try {       final newTransaction = await ApiService.createTransaction(transaction);       _transactions.insert(0, newTransaction);       await LocalDatabaseService.saveTransaction(newTransaction);       notifyListeners();       return true;     } catch (e) {       await LocalDatabaseService.saveTransactionOffline(transaction);       notifyListeners();       return false;     }   } }

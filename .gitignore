@@ -1,0 +1,68 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode/ directory contains internal settings for Visual Studio Code.
+# It is customized on a per-machine basis and should not be tracked.
+.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Flutter/flutter_messenger_custom_actions.sh
+**/ios/Flutter/temporary_*.sh
+**/ios/Frameworks/
+**/linux/flutter/
+**/macos/flutter/
+**/windows/flutter/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+
+# Android related
+**/android/**/generated/
+**/android/app/src/main/res/drawable-*/
+**/android/local.properties
+**/android/Flutter/src/main/java/io/flutter/plugins/
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/
+
+# iOS related
+**/ios/Runner/GeneratedPluginRegistrant.h
+**/ios/Runner/GeneratedPluginRegistrant.m
+**/ios/Runner/Info.plist
+
+# Symbolicator related
+/app.*.symbols
+
+# Executable distributions
+*.apk
+*.aab
+*.ex_
+*.ipa
+
+# External libraries
+/vendor/
