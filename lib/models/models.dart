@@ -7,6 +7,8 @@ class Utilisateur {
   final String devise;
   final String? photoProfil;
   final String statut;
+  final String? questionSecrete;
+  final bool emailVerifie;
   final DateTime dateInscription;
   final DateTime updatedAt;
 
@@ -19,6 +21,8 @@ class Utilisateur {
     this.devise = 'FCFA',
     this.photoProfil,
     this.statut = 'actif',
+    this.questionSecrete,
+    this.emailVerifie = false,
     required this.dateInscription,
     DateTime? updatedAt,
   }) : updatedAt = updatedAt ?? DateTime.now();
@@ -32,6 +36,8 @@ class Utilisateur {
     'devise': devise,
     'photo_profil': photoProfil,
     'statut': statut,
+    'question_secrete': questionSecrete,
+    'email_verifie': emailVerifie ? 1 : 0,
     'date_inscription': dateInscription.toIso8601String(),
     'updated_at': updatedAt.toIso8601String(),
   };
@@ -45,6 +51,8 @@ class Utilisateur {
     devise: map['devise'] ?? 'FCFA',
     photoProfil: map['photo_profil'],
     statut: map['statut'] ?? 'actif',
+    questionSecrete: map['question_secrete'],
+    emailVerifie: map['email_verifie'] == 1 || map['email_verifie'] == true,
     dateInscription: DateTime.parse(map['date_inscription']),
     updatedAt: map['updated_at'] != null
         ? DateTime.parse(map['updated_at'])
@@ -55,9 +63,12 @@ class Utilisateur {
     String? nom,
     String? prenom,
     String? email,
+    String? motDePasse,
     String? devise,
     String? photoProfil,
     String? statut,
+    String? questionSecrete,
+    bool? emailVerifie,
     DateTime? updatedAt,
   }) =>
     Utilisateur(
@@ -65,10 +76,12 @@ class Utilisateur {
       nom: nom ?? this.nom,
       prenom: prenom ?? this.prenom,
       email: email ?? this.email,
-      motDePasse: motDePasse,
+      motDePasse: motDePasse ?? this.motDePasse,
       devise: devise ?? this.devise,
       photoProfil: photoProfil ?? this.photoProfil,
       statut: statut ?? this.statut,
+      questionSecrete: questionSecrete ?? this.questionSecrete,
+      emailVerifie: emailVerifie ?? this.emailVerifie,
       dateInscription: dateInscription,
       updatedAt: updatedAt ?? this.updatedAt,
     );
@@ -235,6 +248,34 @@ class Transaction {
     'updated_at': updatedAt.toIso8601String(),
   };
 
+  Transaction copyWith({
+    double? montant,
+    String? type,
+    DateTime? dateTransaction,
+    String? description,
+    String? modePaiement,
+    String? justificatif,
+    bool effacerJustificatif = false,
+    String? categorieId,
+    String? compteId,
+    DateTime? updatedAt,
+  }) =>
+      Transaction(
+        id: id,
+        montant: montant ?? this.montant,
+        type: type ?? this.type,
+        dateTransaction: dateTransaction ?? this.dateTransaction,
+        description: description ?? this.description,
+        modePaiement: modePaiement ?? this.modePaiement,
+        justificatif: effacerJustificatif ? null : (justificatif ?? this.justificatif),
+        categorieId: categorieId ?? this.categorieId,
+        compteId: compteId ?? this.compteId,
+        utilisateurId: utilisateurId,
+        dateCreation: dateCreation,
+        updatedAt: updatedAt ?? this.updatedAt,
+        categorie: categorie,
+      );
+
   factory Transaction.fromMap(Map<String, dynamic> map) => Transaction(
     id: map['id'],
     montant: map['montant'].toDouble(),
@@ -266,6 +307,8 @@ class Budget {
   bool statutAlerte;
   bool alerte80Envoyee;
   bool alerte100Envoyee;
+  /// Pourcentage du budget à partir duquel une alerte est envoyée.
+  int seuilAlerte;
   Categorie? categorie;
   DateTime updatedAt;
 
@@ -282,6 +325,7 @@ class Budget {
     this.statutAlerte = false,
     this.alerte80Envoyee = false,
     this.alerte100Envoyee = false,
+    this.seuilAlerte = 80,
     this.categorie,
     DateTime? updatedAt,
   }) : updatedAt = updatedAt ?? DateTime.now();
@@ -303,6 +347,7 @@ class Budget {
     'statut_alerte': statutAlerte ? 1 : 0,
     'alerte_80_envoyee': alerte80Envoyee ? 1 : 0,
     'alerte_100_envoyee': alerte100Envoyee ? 1 : 0,
+    'seuil_alerte': seuilAlerte,
     'updated_at': updatedAt.toIso8601String(),
   };
 
@@ -319,6 +364,7 @@ class Budget {
     statutAlerte: map['statut_alerte'] == 1,
     alerte80Envoyee: map['alerte_80_envoyee'] == 1,
     alerte100Envoyee: map['alerte_100_envoyee'] == 1,
+    seuilAlerte: (map['seuil_alerte'] as num?)?.toInt() ?? 80,
     updatedAt: map['updated_at'] != null
         ? DateTime.parse(map['updated_at'])
         : DateTime.fromMillisecondsSinceEpoch(0),
