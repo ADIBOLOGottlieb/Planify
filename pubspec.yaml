@@ -34,6 +34,9 @@ dependencies:
   # UUID
   uuid: ^4.3.3
 
+  # Hachage des mots de passe
+  crypto: ^3.0.3
+
   # Intl
   intl: ^0.20.2
 
@@ -63,15 +66,21 @@ dependencies:
   # Icons
   cupertino_icons: ^1.0.2
   url_launcher: ^6.3.2
+  dio: ^5.11.1
+  firebase_core: ^4.15.0
+  firebase_messaging: ^16.7.0
+  package_info_plus: ^9.0.1
+  timezone: ^0.9.4
+  sqflite_common_ffi_web: ^1.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
+  sqflite_common_ffi: ^2.4.3
 
 flutter:
   uses-material-design: true
 
   assets:
     - assets/lottie/
-    - assets/receipts/

@@ -1,29 +1,43 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
+import 'package:planify/utils/validators.dart';
+import 'package:planify/widgets/password_strength_indicator.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    // await tester.pumpWidget(const MyApp());
+  group('Validators', () {
+    test('email', () {
+      expect(Validators.email('a@b.co'), isNull);
+      expect(Validators.email('  a.b@exemple.tg '), isNull);
+      expect(Validators.email('abc'), isNotNull);
+      expect(Validators.email('a@b'), isNotNull);
+      expect(Validators.email('a b@c.com'), isNotNull);
+    });
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    test('mot de passe : 8 caractères, 1 majuscule, 1 chiffre', () {
+      expect(Validators.isStrongPassword('Abcdefg1'), isTrue);
+      expect(Validators.isStrongPassword('abcdefg1'), isFalse);
+      expect(Validators.isStrongPassword('Abcdefgh'), isFalse);
+      expect(Validators.isStrongPassword('Abc1'), isFalse);
+    });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    test('force du mot de passe', () {
+      expect(PasswordStrength.of(''), PasswordStrength.vide);
+      expect(PasswordStrength.of('abc'), PasswordStrength.faible);
+      expect(PasswordStrength.of('Abcdefg1'), PasswordStrength.moyen);
+      expect(PasswordStrength.of('Abcdefgh1234'), PasswordStrength.bon);
+      expect(PasswordStrength.of('Abcdefgh1234!'), PasswordStrength.fort);
+    });
+  });
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  testWidgets("l'indicateur affiche le niveau de force", (tester) async {
+    await tester.pumpWidget(const MaterialApp(
+      home: Scaffold(body: PasswordStrengthIndicator(password: 'Abcdefgh1234!')),
+    ));
+    expect(find.text('Force : Fort'), findsOneWidget);
+
+    await tester.pumpWidget(const MaterialApp(
+      home: Scaffold(body: PasswordStrengthIndicator(password: '')),
+    ));
+    expect(find.textContaining('Force'), findsNothing);
   });
 }

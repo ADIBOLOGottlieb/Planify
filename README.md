@@ -1,117 +1,75 @@
-# Planify - Application de Planification de Dépenses
+# Planify — application mobile de planification des dépenses (Togo)
 
-Application Flutter complète de gestion financière personnelle, inspirée du mémoire d'ADIBOLO Yawo Andréas Gottlieb.
+Application réalisée dans le cadre du mémoire de Licence Professionnelle « Développeur d'applications » d'ADIBOLO Y. A. Gottlieb (Institut FORMATEC, Lomé) : *Conception et réalisation d'une application mobile de planification de dépense — cas du Togo*.
+
+| Couche | Technologies |
+|---|---|
+| Mobile | Flutter 3 / Dart, architecture MVVM (Provider / ChangeNotifier), SQLite (sqflite) hors ligne, Dio (HTTP), Flutter Secure Storage, fl_chart, Lottie |
+| Serveur | Laravel 10 / PHP 8.2, API REST, Laravel Sanctum (jetons 24 h), MySQL 8 — voir [backend/](backend/README.md) |
+| Notifications | Firebase Cloud Messaging (push) + notifications locales (alertes budget, rappel quotidien) |
+| Administration | Interface web Laravel + Bootstrap |
 
 ## Fonctionnalités
 
-### 🔐 Authentification
-- Inscription avec nom, prénom, email et mot de passe
-- Connexion sécurisée
-- Modification du profil et changement de mot de passe
+- **Compte.** Inscription avec email de vérification ; connexion avec l'option « Rester connecté » et un blocage de 15 min après 5 échecs ; mot de passe oublié par code email, ou par question de sécurité hors ligne ; photo de profil ; suppression du compte.
+- **Transactions.**
+  - Saisie en feuille modale : montant, type, catégorie, date, mode de paiement (espèces, Mobile Money, virement, carte), description, photo de reçu (appareil photo ou galerie).
+  - Recherche multicritère : catégorie, mode de paiement, période, montant.
+  - Transactions récurrentes enregistrées automatiquement à leur échéance.
+- **Mobile Money.** Comptes TMoney / Mixx by Yas et Flooz avec leur solde ; lancement des codes USSD (achat de crédit, transfert).
+- **Budgets.**
+  - Budget global ou par catégorie, hebdomadaire, mensuel ou annuel ; seuil d'alerte réglable (80 % par défaut).
+  - Le montant déjà dépensé est affiché à la création ; le reliquat d'un mois est reporté sur le mois suivant.
+  - Barres vertes, orange ou rouges selon la consommation ; calendrier des échéances.
+- **Tableau de bord.** Solde, dépenses et revenus du mois ; graphique en anneau cliquable par catégorie ; alertes ; transactions récentes ; objectifs.
+- **Rapports.**
+  - Période au choix : semaine, mois, trimestre ou année.
+  - Comparaisons avec la période précédente et avec la même période de l'année précédente.
+  - Graphiques : histogramme sur 12 mois, courbe du solde cumulé.
+  - Écart entre budget prévu et dépenses réelles ; prévisions par moyenne mobile ; trajectoire à 3, 6 et 12 mois ; recommandations personnalisées ; export PDF.
+- **Objectifs d'épargne.** Suivi de la progression et calculateur du montant mensuel à épargner.
+- **Paramètres.**
+  - Notifications : alertes budgétaires, seuil par défaut, rappel quotidien.
+  - Apparence : thème clair, sombre ou système, et couleur d'accent.
+  - Données : export CSV / PDF, sauvegarde et synchronisation.
+  - À propos : version, confidentialité, mentions légales, signalement d'un problème.
+- **Hors ligne.** Tout fonctionne sans connexion. La synchronisation bidirectionnelle gère les conflits et les suppressions en attente.
 
-### 💰 Gestion des Transactions
-- Saisie de dépenses et revenus
-- Catégorisation par type (Alimentation, Transport, Santé, Salaire, etc.)
-- Modes de paiement : Espèces, Mobile Money, Virement, Carte
-- Recherche et filtrage
-- Glisser pour supprimer
-
-### 📊 Budgets
-- Création de budgets globaux ou par catégorie
-- Suivi en temps réel de la consommation
-- Alertes visuelles à 80% et dépassement
-- Périodes : hebdomadaire, mensuel, annuel
-
-### 📈 Rapports & Analyses
-- Tableau de bord avec solde, revenus et dépenses du mois
-- Graphiques circulaires de répartition des dépenses
-- Histogramme d'évolution sur 6 mois
-- Sélecteur de mois pour l'analyse historique
-
-### 🎯 Objectifs d'Épargne
-- Création d'objectifs avec montant cible et date d'échéance
-- Alimentation progressive des objectifs
-- Suivi visuel de la progression
-
-### 👤 Profil
-- Gestion du compte utilisateur
-- Choix de devise (FCFA, EUR, USD, GBP, XOF)
-- Déconnexion
-
-## Stack Technique
-
-- **Framework** : Flutter / Dart
-- **Base de données** : SQLite (sqflite)
-- **State Management** : Provider
-- **Graphiques** : fl_chart
-- **Polices** : Google Fonts (Manrope)
-- **Stockage** : SharedPreferences
-- **Internationalisation** : intl + flutter_localizations
-
-## Installation
-
-### Prérequis
-- Flutter SDK >= 3.0.0
-- Android Studio ou VS Code
-- Un émulateur Android ou appareil physique
-
-### Étapes
-
-```bash
-# Cloner le projet
-git clone <repo-url>
-cd planification_depense
-
-# Installer les dépendances
-flutter pub get
-
-# Lancer l'application
-flutter run
-```
-
-### Build APK
-
-```bash
-flutter build apk --release
-```
-
-## Structure du Projet
+## Structure (MVVM)
 
 ```
 lib/
-├── main.dart                    # Point d'entrée
-├── models/
-│   └── models.dart              # Modèles de données
-├── providers/
-│   ├── auth_provider.dart       # Authentification
-│   ├── transaction_provider.dart
-│   ├── budget_provider.dart
-│   ├── category_provider.dart
-│   └── objectif_provider.dart
-├── screens/
-│   ├── splash_screen.dart
-│   ├── auth/
-│   │   ├── login_screen.dart
-│   │   └── register_screen.dart
-│   ├── home/
-│   │   ├── main_screen.dart
-│   │   └── dashboard_screen.dart
-│   ├── transactions/
-│   │   ├── transactions_screen.dart
-│   │   └── add_transaction_screen.dart
-│   ├── budgets/
-│   │   └── budgets_screen.dart
-│   ├── rapports/
-│   │   └── rapports_screen.dart
-│   └── profil/
-│       └── profil_screen.dart
-└── utils/
-    ├── database_helper.dart
-    └── app_constants.dart
+├── main.dart            # point d'entrée, thème, injection des ViewModels
+├── models/              # Utilisateur, Transaction, Categorie, Budget, Alerte, Objectif, Compte…
+├── views/               # écrans (auth, home, transactions, budgets, rapports, profil…)
+├── viewmodels/          # logique de présentation et état (ChangeNotifier + Provider)
+├── services/            # API (Dio), SQLite, synchronisation, notifications, FCM, export, USSD
+├── utils/               # constantes, thème, validateurs, hachage, périodes, recommandations
+└── widgets/             # composants réutilisables (graphique en anneau, force du mot de passe)
+backend/                 # API Laravel 10 (voir backend/README.md)
+test/                    # tests unitaires et de widgets
 ```
 
-## Auteur
+## Lancer l'application
 
-Inspiré du mémoire de **ADIBOLO Yawo Andréas Gottlieb**  
-Institut FORMATEC - Licence Professionnelle, Développement d'Applications  
-Année académique 2024-2025
+```bash
+flutter pub get
+flutter run                                                   # mode local (sans serveur)
+flutter run --dart-define=API_URL=http://192.168.1.10:8000    # avec l'API Laravel
+```
+
+Pour activer les notifications push, voir la section FCM de [backend/README.md](backend/README.md).
+
+## Tests
+
+```bash
+flutter test          # 52 tests : hachage, authentification, migrations SQLite, synchronisation,
+                      # client API, statistiques, prévisions, recommandations, validateurs
+cd backend/planify-api && php artisan test   # tests Feature de l'API et de l'administration
+```
+
+## Build
+
+```bash
+flutter build apk --release --dart-define=API_URL=https://api.planify.tg
+```

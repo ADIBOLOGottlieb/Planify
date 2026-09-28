@@ -1,11 +1,11 @@
 {
-    "name": "planify",
-    "short_name": "planify",
+    "name": "Planify",
+    "short_name": "Planify",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#5f85c2",
-    "description": "A budget and financial tracking application designed for you",
+    "background_color": "#0F172A",
+    "theme_color": "#2ECC70",
+    "description": "Planification des dépenses personnelles (Togo)",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
@@ -21,4 +21,3 @@
         }
     ]
 }
-

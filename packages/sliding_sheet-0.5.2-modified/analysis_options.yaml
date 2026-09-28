@@ -15,6 +15,8 @@ analyzer:
     todo: ignore
     # do not override nonVirtual members
     invalid_override_of_non_virtual_member: warning
+  exclude:
+    - build/**
 
 # Rules are in the same order (alphabetically) as documented at http://dart-lang.github.io/linter/lints
 # and https://github.com/dart-lang/linter/blob/master/example/all.yaml

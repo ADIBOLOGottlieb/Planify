@@ -66,3 +66,6 @@ migrate_working_dir/
 
 # External libraries
 /vendor/
+
+# Projet Laravel généré par backend/install.* (seul backend/overlay est versionné)
+/backend/planify-api/
